@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Relicario de Cuentos | Libro Digital Interactivo</title>
+  
+  <!-- Tipografías literarias Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-parchment ambient-mahogany">
+
+  <!-- Canvas Atmosférico para partículas de polvo cósmico / luz cálida -->
+  <canvas id="ambientDustCanvas" class="ambient-canvas"></canvas>
+
+  <!-- =========================================================================
+       BARRA SUPERIOR: BIBLIOTECA DE CUENTOS & PESTAÑAS
+       ========================================================================= -->
+  <header class="app-topbar">
+    <div class="brand-section">
+      <span class="brand-icon">👑</span>
+      <div>
+        <h1 class="brand-title">Relicario de Cuentos</h1>
+      </div>
+    </div>
+
+    <!-- Pestañas dinámicas de cuentos -->
+    <div class="story-tabs-wrapper">
+      <div id="storyTabsList" class="story-tabs-list">
+        <!-- Renderizado dinámicamente con stories.js -->
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       BARRA SECUNDARIA: SECCIONES Y CONTROLES DE LECTURA
+       ========================================================================= -->
+  <nav class="sub-nav">
+    <div class="nav-views-group">
+      <button class="nav-tab-btn active" data-tab="book-view" title="Modo Lectura">
+        <span class="nav-icon">📖</span><span class="nav-btn-text">Lectura</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="gallery-view" title="Galería Ilustrada">
+        <span class="nav-icon">🎨</span><span class="nav-btn-text">Galería</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="characters-view" title="Dossier de Personajes">
+        <span class="nav-icon">👥</span><span class="nav-btn-text">Dossier</span>
+      </button>
+      <button id="tocBtn" class="nav-tab-btn" title="Índice de Escenas">
+        <span class="nav-icon">📑</span><span class="nav-btn-text">Índice</span>
+      </button>
+      <button id="readingSettingsBtn" class="nav-tab-btn settings-btn" title="Ajustes de Lectura">
+        <span class="nav-icon">⚙️</span><span class="nav-btn-text">Ajustes</span>
+      </button>
+    </div>
+
+    <!-- Controles de experiencia de lectura (En desktop inline, en móvil drawer emergente) -->
+    <div id="readingControls" class="reading-controls">
+      <div class="controls-drawer-header">
+        <span>⚙️ Ajustes de Lectura</span>
+        <button id="closeSettingsBtn" class="close-settings-btn" aria-label="Cerrar ajustes">✕</button>
+      </div>
+
+      <!-- Selector de tamaño de fuente -->
+      <div class="control-group" title="Tamaño de texto">
+        <button id="fontDecBtn" class="ctrl-btn" title="Disminuir letra">A-</button>
+        <button id="fontIncBtn" class="ctrl-btn" title="Aumentar letra">A+</button>
+      </div>
+
+      <!-- Selector de tema de papel -->
+      <div class="control-group" title="Aspecto del papel">
+        <button class="ctrl-btn theme-btn active" data-theme="parchment" title="Pergamino Imperial">📜</button>
+        <button class="ctrl-btn theme-btn" data-theme="night" title="Noche Estelar">🌌</button>
+        <button class="ctrl-btn theme-btn" data-theme="sepia" title="Sepia Antiguo">🍂</button>
+        <button class="ctrl-btn theme-btn" data-theme="clean" title="Papel Blanco">📄</button>
+      </div>
+
+      <!-- Selector de ambiente de fondo / mesa de lectura -->
+      <div class="control-group" title="Ambiente de Fondo / Mesa de Lectura">
+        <button class="ctrl-btn ambient-btn active" data-ambient="mahogany" title="Estudio de Caoba Imperial (Madera Noble)">🪵</button>
+        <button class="ctrl-btn ambient-btn" data-ambient="valcora" title="Castillo Valcora (Nebulosa y Obsidiana)">🪐</button>
+        <button class="ctrl-btn ambient-btn" data-ambient="marble" title="Relicario de Mármol Arcano">🏛️</button>
+      </div>
+
+      <!-- Sonido de pasar hoja -->
+      <button id="soundToggleBtn" class="ctrl-btn active" title="Activar/Desactivar sonido de hojas">
+        🔊 Sonido Activado
+      </button>
+    </div>
+
+    <!-- Fondo oscuro al abrir ajustes en móvil -->
+    <div id="settingsBackdrop" class="drawer-backdrop"></div>
+  </nav>
+
+  <!-- =========================================================================
+       ÁREA PRINCIPAL DE CONTENIDO
+       ========================================================================= -->
+  <main class="main-content-area">
+
+    <!-- PANEL 1: MODO LIBRO ABIERTO (LECTURA) -->
+    <section id="book-view" class="tab-view-panel active">
+      <div class="book-workspace">
+        <div class="book-wrapper">
+          <!-- Encuadernación de Cuero y Lomo -->
+          <div class="book-spine-binding" id="bookSpine">
+            <div class="book-pages-container">
+              <!-- Sombra central del lomo y pliegue de las páginas -->
+              <div class="book-center-crease"></div>
+
+              <!-- Cinta marcapáginas interactiva -->
+              <div id="bookBookmarkRibbon" class="book-bookmark-ribbon" title="Marcador de lectura"></div>
+
+              <!-- Página Izquierda (Páginas pares / Portada) -->
+              <div id="pageLeft" class="book-page book-page-left">
+                <!-- Se llena dinámicamente con app.js -->
+              </div>
+              <span id="pageNumLeft" class="page-footer-num"></span>
+
+              <!-- Página Derecha (Páginas impares) -->
+              <div id="pageRight" class="book-page book-page-right">
+                <!-- Se llena dinámicamente con app.js -->
+              </div>
+              <span id="pageNumRight" class="page-footer-num"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barra inferior de navegación rápida y progreso de lectura -->
+        <div class="book-bottom-bar">
+          <button id="prevPageBtn" class="nav-arrow-btn" aria-label="Página anterior">
+            <span>◀</span><span class="btn-arrow-text">Anterior</span>
+          </button>
+
+          <div class="progress-center-box">
+            <div class="book-progress-track">
+              <div id="bookProgressFill" class="book-progress-fill"></div>
+            </div>
+            <span id="bookProgressText" class="progress-label">0% (Pág. 0 / 0)</span>
+          </div>
+
+          <button id="nextPageBtn" class="nav-arrow-btn" aria-label="Página siguiente">
+            <span class="btn-arrow-text">Siguiente</span><span>▶</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL 2: GALERÍA ILUSTRADA -->
+    <section id="gallery-view" class="tab-view-panel">
+      <div class="gallery-section-header">
+        <h2 class="section-title">Crónicas Visuales e Ilustraciones</h2>
+        <p class="section-subtitle">
+          Arte conceptual y escenas representativas de cada acto. Puedes verlas en pantalla completa o reemplazarlas con tus propias ilustraciones personalizadas.
+        </p>
+      </div>
+
+      <div id="galleryGrid" class="gallery-grid">
+        <!-- Renderizado dinámico desde app.js -->
+      </div>
+    </section>
+
+    <!-- PANEL 3: DOSSIER DE PERSONAJES Y OBJETOS -->
+    <section id="characters-view" class="tab-view-panel">
+      <div class="gallery-section-header">
+        <h2 class="section-title">Dossier Imperial de Personajes & Artefactos</h2>
+        <p class="section-subtitle">
+          Registros forenses, armamento y expedientes de los protagonistas y sospechosos en el Castillo-Estación Valcora.
+        </p>
+      </div>
+
+      <div id="charactersGrid" class="characters-grid">
+        <!-- Renderizado dinámico desde app.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       MODALES
+       ========================================================================= -->
+
+  <!-- Modal 1: Lightbox de Ilustración en Pantalla Completa -->
+  <div id="lightboxModal" class="modal">
+    <div class="modal-card lightbox-card">
+      <div class="modal-header">
+        <h3 id="lightboxTitle" class="modal-title">Ilustración</h3>
+        <span id="lightboxIndexBadge" class="lightbox-index-badge">1 / 11</span>
+        <button id="closeLightboxBtn" class="close-btn">✕</button>
+      </div>
+      <div class="lightbox-stage">
+        <button id="lightboxPrevBtn" class="lightbox-nav-arrow prev" title="Ilustración anterior">◀</button>
+        <div id="lightboxContent" class="lightbox-img-box"></div>
+        <button id="lightboxNextBtn" class="lightbox-nav-arrow next" title="Siguiente ilustración">▶</button>
+      </div>
+      <div class="lightbox-details">
+        <p id="lightboxCaption"></p>
+        <blockquote id="lightboxQuote" class="lightbox-quote"></blockquote>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Índice de Escenas / Capítulos -->
+  <div id="tocModal" class="modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Índice del Cuento</h3>
+        <button id="closeTocBtn" class="close-btn">✕</button>
+      </div>
+      <ul id="tocList" class="toc-list">
+        <!-- Items generados dinámicamente -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal 3: Agregar Nuevo Cuento (o subir .txt) -->
+  <div id="newStoryModal" class="modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Añadir Nuevo Cuento</h3>
+        <button id="closeNewStoryBtn" class="close-btn">✕</button>
+      </div>
+
+      <!-- Zona para arrastrar o cargar archivo .txt -->
+      <div id="fileDropZone" class="file-dropzone">
+        <p>📂 <strong>Haz clic aquí o arrastra un archivo .txt</strong></p>
+        <small style="color: #94a3b8;">Carga automática de tu relato de inmediato</small>
+        <input type="file" id="storyFileInput" accept=".txt,.md" style="display: none;">
+      </div>
+
+      <form id="newStoryForm">
+        <div class="form-group">
+          <label for="newStoryTitle">Título del Cuento:</label>
+          <input type="text" id="newStoryTitle" class="form-control" placeholder="Ej: La Conspiración de Orión" required>
+        </div>
+
+        <div class="form-group">
+          <label for="newStoryAuthor">Autor o Crónica:</label>
+          <input type="text" id="newStoryAuthor" class="form-control" placeholder="Ej: Crónicas del Trono Solar">
+        </div>
+
+        <div class="form-group">
+          <label for="newStoryGenre">Género / Estilo:</label>
+          <input type="text" id="newStoryGenre" class="form-control" placeholder="Ej: Fantasía Científica / Romance">
+        </div>
+
+        <div class="form-group">
+          <label for="newStorySynopsis">Sinopsis o Resumen:</label>
+          <textarea id="newStorySynopsis" class="form-control" rows="2" placeholder="Breve descripción del relato..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="newStoryContent">Texto del Cuento (Markdown o Texto Plano):</label>
+          <textarea id="newStoryContent" class="form-control" rows="8" placeholder="Pega aquí el contenido de tu cuento o carga un archivo .txt..." required></textarea>
+        </div>
+
+        <button type="submit" class="action-btn">✨ Publicar en la Biblioteca</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="stories.js"></script>
+  <script src="illustrations.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

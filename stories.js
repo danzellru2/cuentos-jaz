@@ -1,0 +1,404 @@
+// Base de datos de cuentos inicial
+const defaultStories = [
+  {
+    id: "gargola-tibia",
+    title: "El Teorema de la Gárgola Tibia",
+    author: "Crónicas del Trono Solar",
+    genre: "Fantasía Científica / Romance / Misterio Forense",
+    synopsis: "En el Castillo-Estación Valcora, a horas de una coronación crucial, la reliquia más sagrada del imperio desaparece. La Criminóloga Real Mine-Jaz y su extravagante escudero-ingeniero Paoliño deberán desafiar las leyes de la física, la diplomacia y el buen gusto para resolver un crimen imposible.",
+    coverStyle: "gothic-gold",
+    tagline: "Un misterio imperial entre la ciencia antigua, runas de oro y la danza del tubo.",
+    contentRaw: `**El Teorema de la Gárgola Tibia**
+
+**Escena I: El gancho y el tubo de enfriamiento**
+
+—Paoliño, si vuelves a chirriar contra esa columna, voy a pedirle al verdugo real que te desmonte por piezas.
+
+Mine-Jaz ni siquiera giró la cabeza al decirlo. Llevaba catorce horas sin dormir y se frotaba las sienes frente a las puertas blindadas del Relicario Imperial del Castillo-Estación *Valcora*, tratando de ignorar el atentado contra las leyes de la física y del buen gusto que ocurría a su espalda.
+
+A tres metros de la escena del crimen más grave del siglo, su escudero-ingeniero estaba aferrado al conducto vertical de enfriamiento criogénico que atravesaba la antecámara gótica. Paoliño llevaba puesta su media armadura de titanio bruñido, una capa carmesí de gala y una expresión de tragedia operística digna de un mártir estelar. Con un impulso entusiasta y cero talento gimnástico, intentó un giro invertido alrededor del tubo de bronce. Sus grebas metálicas emitieron un chillido agudo, su capa se le enredó en el casco y terminó deslizándose hacia abajo como un saco de tuercas hasta quedar sentado en el suelo de obsidiana.
+
+—Estaba fríamente calculado, mi señora —declaró Paoliño, levantando una mano enguantada con dignidad inquebrantable—. La «danza del tubo» requiere calentar el espíritu antes de entrar en acción. Además, este conducto está rarísimo. Se supone que baja nitrógeno líquido desde las torres de artillería, pero está tibio como pan recién horneado. Casi me suda la coraza.
+
+Mine-Jaz suspiró, caminó hacia él y, sin pedir permiso, abrió el bolsillo táctico izquierdo del cinturón de Paoliño: el compartimento blindado donde otros escuderos guardaban granadas de plasma, pero donde él llevaba siempre una bolsita de almendras de nebulosa acarameladas para cuando a la Criminóloga Real le bajaba el azúcar a mitad de una deducción. Ella masticó una almendra con gesto reflexivo y le tendió la mano para ayudarlo a levantarse.
+
+—Tienes grasa de litio en la hombrera —murmuró ella, limpiándole la mancha con el pulgar un segundo más de lo estrictamente profesional—. Y tenemos dos horas antes de que los Tres Soles se alineen para la coronación. Si la Corona de Quásar no aparece antes del cántico inaugural, los señores feudales de Orión declararán que el príncipe ha perdido el favor de los Antiguos y bombardearán la estación.
+
+Entraron juntos a la bóveda circular. En el centro, sobre un pedestal de mármol con compensadores gravitatorios, el cojín de terciopelo negro estaba vacío. No había guardias muertos ni cerraduras forzadas.
+
+En los Siete Sistemas del Trono Solar, cualquier graduado de la Academia sabía que la llamada «magia» no era más que ingeniería de la Primera Era que ya nadie sabía fabricar: los hechizos eran comandos de voz en latín binario, las maldiciones eran virus transmitidos por ultrasonido y las runas sagradas del suelo no pasaban de ser circuitos impresos en oro líquido.
+
+Paoliño sacó su multiherramienta favorita —una llave inglesa de pulso sónico con núcleo de oro a la que llamaba *El Desfibrilador de Almas*— y la pasó sobre el pavimento.
+
+—Las runas del umbral siguen en rojo continuo —observó él, frunciendo el ceño—. Los sensores ópticos no se han interrumpido ni un milisegundo desde que sellaron la cámara anoche. Nadie cruzó esta puerta.
+
+—Nadie cruzó porque nadie tuvo que hacerlo —corrigió Mine-Jaz en voz baja.
+
+Sus ojos color ámbar habían captado tres anomalías que el capitán de la guardia había ignorado por completo: las velas de plasma suspendidas en el aire ardían con una extraña llama verdosa en lugar de dorada; los incensarios flotantes junto al altar no colgaban rectos, sino inclinados quince grados hacia la gárgola de desagüe del muro norte; y en el ambiente flotaba un tenue aroma a aceite de romero recalentado.
+
+Mine-Jaz se ajustó su monóculo de plata sobre el ojo derecho y se acercó a la boca entreabierta de la gárgola de piedra. Al pasar el dedo enguantado por el borde interior de la rejilla, encontró una mancha de grasa fresca en la que brillaban tres diminutas limaduras de latón dorado.
+
+—Quien hizo esto no sacó la Corona de la cámara, Paoliño —susurró ella, guardando la muestra en un vial de cristal—. Nos está haciendo mirar hacia la puerta porque la joya jamás abandonó esta habitación.
+
+---
+
+**Escena II: Tres sospechosos, tres aromas y un guantelete impecable**
+
+Diez minutos después, en la Galería de los Astrolabios, el gran ventanal ojival —flanqueado por dos gruesos conductos verticales de bronce que regulaban la presión estructural del casco— mostraba el imponente espectáculo de los acorazados con forma de dragón mecánico anclados junto a los anillos de hielo del planeta Vésper. Dentro de la sala, las tres únicas personas que habían participado en el ritual de sellado la noche anterior esperaban bajo la mirada analítica de Mine-Jaz.
+
+El primero era el Margrave Kaelen de la Flota Escama, un coloso con armadura de placas negras melladas por treinta campañas orbitales y una espada mandoble de plasma a la espalda. Kaelen desprendía un fuerte olor a aceite de romero, el lubricante tradicional que los guerreros de su casa usaban en las juntas de sus armaduras. Su motivo era evidente: su flota vivía de la guerra fronteriza, y el tratado de paz que firmaría el príncipe reduciría su presupuesto a la mitad.
+
+La segunda era Sor Sílice del Coro Binario, la abadesa cibernética cuyos implantes vocales emitían los cánticos en código máquina que activaban las cerraduras reales. De los pequeños pebeteros incrustados en sus hombros brotaba un humo azulado con esencia de romero consagrado. Odiaba en secreto a la Corona por haber expropiado los monasterios de datos de su orden.
+
+El tercero era el Senescal Orlov Vane, administrador del Tesoro Imperial y custodio único de las llaves de la Real Armería. Orlov había sido el mentor de Mine-Jaz: el hombre que descubrió su talento prodigioso en la Academia Forense Imperial y le regaló su monóculo de plata el día de su graduación. Llevaba la manga izquierda de terciopelo negro abotonada sobre su prótesis mecánica de relojería —que también lubricaba con aceite de romero medicinal— y miraba por el ventanal con expresión sombría.
+
+—Este interrogatorio es un insulto, investigadora —gruñó el Margrave Kaelen, cruzando sus enormes brazos acorazados—. Mientras buscas fantasmas, el ladrón ya debe haber saltado al hiperespacio.
+
+—El Margrave tiene razón en algo, querida Mine-Jaz —intervino el Senescal Orlov con voz grave y cansada—. Con los mundos agrícolas del borde exterior al borde de la hambruna por las cláusulas comerciales del nuevo tratado real, el reino camina sobre pólvora. Si no resolvemos esto antes del cántico, esa Corona acabará en el fuego.
+
+Antes de que Mine-Jaz pudiera preguntarle a su mentor por qué había elegido esa palabra, las puertas dobles se abrieron de golpe. El comandante de los Alabarderos Reales entró escoltado por cuatro guardias y arrojó sobre la mesa holográfica un guantelete de escamas negras con el blasón de la Flota Escama, chamuscado en la palma por una descarga rúnica.
+
+—¡Lo hallamos atascado en el conducto de ventilación exterior, rumbo al hangar del Margrave Kaelen! —anunció el comandante, encendiendo su alabarda de plasma—. ¡Intentó arrojar la Corona al espacio para que sus naves la recogieran!
+
+Kaelen rugió y llevó ambas manos a la empuñadura de su mandoble.
+
+—Un montaje fascinante, comandante —dijo Mine-Jaz con calma glacial, señalando las manos del gigante—. Sobre todo porque el Margrave Kaelen lleva puestos sus dos guanteletes de combate ahora mismo.
+
+Los guardias parpadearon, mirando las manos acorazadas de Kaelen, llenas de abolladuras y cicatrices de láser, y luego el guantelete sobre la mesa.
+
+—Miren los nudillos de esa pieza —continuó Mine-Jaz, inclinándose sobre la mesa sin tocarla—. No tiene ni un solo rasguño de espada, el esmalte está intacto y las correas internas huelen a cera de almacenamiento nueva. Es el guantelete ceremonial de repuesto que se guarda bajo triple llave en la Real Armería. Alguien lo sacó ayer, lo quemó con un generador rúnico y lo metió en el conducto exterior para fabricar un culpable rápido. Aun así, comandante, arreste al Margrave y a la abadesa de forma preventiva y despeje el nivel inferior; necesito revisar las tuberías.
+
+Cuando los guardias se llevaron a un furioso Kaelen junto con Sor Sílice y el Senescal Orlov abandonó la sala en silencio, Paoliño se acercó a Mine-Jaz con el ceño fruncido.
+
+—¿Por qué dejaste que se llevaran al grandullón si sabías que el guantelete salió de la armería que administra Orlov?
+
+Mine-Jaz se volvió hacia él con los ojos encendidos como dos supernovas.
+
+—Porque necesitaba que el culpable creyera que nos tragamos el anzuelo —susurró ella a toda velocidad—. Escúchame bien, Paoliño, acabo de formular lo que llamaremos «el teorema de la gárgola tibia». Lo único en el universo capaz de cegar a la nanotecnología de las runas antiguas es el plomo frío. Quien selló la cámara anoche escondió la Corona de Quásar dentro de la gárgola de desagüe antes de activar la puerta. El revestimiento de plomo de la tubería engaña a los sensores mágicos, pero no puede ocultar la física: la Corona funciona con un núcleo de micro-singularidad, una estrella enana comprimida. Su gravedad inclinó los incensarios quince grados, su calor entibió el tubo de bronce en el que estuviste bailando y el vapor de cobre recalentado se filtró por la rejilla, tiñendo de verde las llamas de las velas.
+
+Paoliño abrió mucho los ojos y conectó los cables mentales al instante.
+
+—Y ese conducto criogénico baja directamente desde la gárgola hasta... —tragó saliva—. Hasta los inyectores del reactor de fusión del castillo. ¡«Acabará en el fuego»!
+
+—Exacto —dijo Mine-Jaz, desenfundando su pistola de agujas magnéticas—. No es un robo; es una bomba. Cuando enciendan los motores ceremoniales para alinear el castillo con los Tres Soles, el flujo criogénico arrastrará la Corona directo al núcleo del reactor y volará la estación entera.
+
+---
+
+**Escena III: El arte incomprendido de girar con armadura**
+
+Para llegar a la válvula de purga bajo el Relicario y extraer la Corona antes del encendido de los motores, había que cruzar la Nave Central del Coro, donde seis Alabarderos de Élite con visores térmicos custodiaban la compuerta de mantenimiento bajo órdenes estrictas de no dejar pasar a nadie.
+
+Quedaban veinticinco minutos. Escondidos tras un contrafuerte de piedra neogótica, Mine-Jaz evaluó el terreno: la rejilla de la gárgola estaba al fondo, justo debajo del balcón del coro alto, y en mitad del pasillo se alzaba el pilar maestro de presurización, un cilindro de bronce pulido de cuatro metros de altura.
+
+—Si disparamos, activarán el bloqueo automático y sellarán la tubería con acero líquido —murmuró ella—. Necesito cuarenta y cinco segundos frente a la válvula maestra sin que un solo visor apunte hacia el muro norte.
+
+Paoliño se ajustó el cinturón, sacó una almendra acaramelada, la puso en la palma de la mano de ella y miró el cilindro de bronce con expresión heroica.
+
+—Cuarenta y cinco segundos —susurró él, soltando el broche de su capa carmesí—. Mi señora, ninguno de los dos quiere admitirlo, pero sabes perfectamente que mi danza es nuestra única opción táctica.
+
+Mine-Jaz cerró los ojos. Durante tres largos segundos calculó vectores, tiempos de reacción y su propia dignidad profesional. Finalmente, soltó el aire por la nariz y asintió con profunda resignación porque odiaba con toda su alma que aquel disparate fuera, estadísticamente, el único plan viable.
+
+—Que no se te enrede la capa en el casco —ordenó ella—. Y empieza a mi señal. Ya.
+
+Paoliño saltó al centro de la nave iluminada por vitrales láser con los brazos abiertos.
+
+—¡Nobles centinelas del vacío! —bramó con voz de barítono dramático—. ¡Contemplad el ritual sagrado de los caballeros de la Nebulosa Exterior!
+
+Antes de que los alabarderos pudieran reaccionar, Paoliño se aferró al tubo de bronce y ejecutó «El Giro del Fénix Desplumado». El chirrido de su peto de titanio contra el metal resonó por toda la catedral espacial como el lamento de un cometa moribundo. Los seis guardias se quedaron absolutamente petrificados.
+
+Aprovechando que todos los cascos giraban al unísono hacia aquel desastre acrobático, Mine-Jaz se deslizó como una sombra por detrás de los bancos de piedra hasta alcanzar la gárgola de mantenimiento.
+
+—¡Sentid el vértigo del cosmos! —exclamó Paoliño desde las alturas del tubo, intentando una bandera humana con una sola pierna mientras los guardias bajaban las alabardas por pura confusión moral.
+
+Detrás del altar, Mine-Jaz usó una horquilla de cobre para puentear el circuito de oro líquido de la gárgola y abrir la compuerta de plomo. Adentro, retenida contra la válvula criogénica, brillaba la Corona de Quásar.
+
+Pero al puentear el circuito, un clic mecánico resonó en las alturas. Mine-Jaz alzó la vista y sintió que la sangre se le helaba en las venas: oculta en la barandilla del coro superior había una ballesta automática de plasma enlazada a la runa de la gárgola. Pero no apuntaba hacia la rejilla donde estaba ella; apuntaba directamente hacia el pilar central en mitad de la nave.
+
+En una fracción de segundo, Mine-Jaz comprendió la magnitud de la traición: Orlov la conocía tan bien que había anticipado su jugada exacta. Sabía que ella jamás abriría la válvula por la fuerza, sino que usaría a Paoliño como distracción en el centro de la sala mientras ella puenteaba el circuito. Había diseñado la trampa para matar a su escudero frente a sus ojos.
+
+El condensador de la ballesta emitió el zumbido agudo previo al disparo justo cuando la correa de la bota de Paoliño se atascó en una llave de paso del tubo central, dejándolo colgado boca abajo con el punto láser rojo en medio del pecho.
+
+Mine-Jaz no gritó. En menos de medio segundo arrancó su monóculo de plata de la cadena y lo lanzó con un giro seco de muñeca hacia el techo. La lente biselada interceptó el haz de plasma a mitad de camino; el cristal estalló en mil fragmentos, desviando el rayo mortal hacia un candelabro que se fundió en una lluvia de chispas. Acto seguido, Mine-Jaz disparó un dardo magnético al broche de la bota de Paoliño, liberándolo para que cayera sobre la alfombra del altar.
+
+—Estaba... fríamente calculado —jadeó Paoliño mientras corría a ayudarla a meter la Corona en el cofre de contención de plomo y engancharle una cadena de amarre.
+
+El problema llegó cuando sacaron el cofre fuera del compensador gravitatorio de la tubería. Una estrella enana comprimida, sumada a diez centímetros de plomo macizo, pesaba cerca de noventa kilos. Cuando Paoliño la levantó entre los brazos para huir antes de que los guardias salieran de su estupor, las rodillas le crujieron y sus botas se hundieron en las baldosas.
+
+—¡Por los clavos del emperador! —gimió Paoliño con la cara roja como su capa, caminando de lado como un cangrejo blindado—. ¡¿De qué está hecha esta cosa, de remordimientos?!
+
+---
+
+**Escena IV: El peso de una estrella**
+
+La coronación empezaba en seis minutos cuando Mine-Jaz irrumpió de nuevo en la Galería de los Astrolabios, seguida por un Paoliño bañado en sudor que resoplaba como un fuelle roto. Con un último quejido heroico, el escudero apoyó el pesadísimo cofre de plomo junto al conducto vertical de bronce que flanqueaba el ventanal y pasó la cadena de seguridad alrededor del tubo para sostenerlo.
+
+En la sala, el Senescal Orlov Vane supervisaba la formación de gala junto a Sor Sílice y un Margrave Kaelen al que acababan de traer bajo custodia.
+
+—Mine-Jaz —dijo Orlov, dando un paso al frente al ver el cofre—. La ceremonia está por comenzar. ¿Has recuperado la Corona de las manos de los cómplices del Margrave?
+
+—La recuperé del conducto criogénico del reactor, Senescal Orlov —respondió Mine-Jaz, deteniéndose a tres pasos de su antiguo mentor. Su voz era firme, aunque sentía una punzada helada en el pecho—. Justo donde usted la escondió anoche antes de sellar las runas de la cámara, tal como demuestra el teorema de la gárgola tibia.
+
+El silencio cayó sobre la sala como una losa. Kaelen entrecerró los ojos y Sor Sílice retrocedió un paso.
+
+—¿Me acusas a mí, muchacha? —preguntó Orlov con serenidad imperturbable—. Si encontraste aceite de romero en esa tubería, te recuerdo que la armadura de Kaelen y los incensarios de la abadesa están impregnados de esa misma esencia.
+
+—Lo sé —dijo Mine-Jaz, avanzando un paso más—. Usted me enseñó el Principio de Intercambio de Locard en mi primer día en la Academia: *todo contacto deja un rastro, y todo lo que tocas te marca*. Los tres olían a romero, sí. Pero al empujar un objeto de noventa kilos dentro de la gárgola y conectar la ballesta que apuntó al centro de la nave —porque solo usted sabía cómo trabajamos Paoliño y yo—, los engranajes de su prótesis de relojería rozaron la piedra y dejaron limaduras de latón microscópicas en la grasa del conducto. Y la tubería recalentada también dejó su rastro en usted.
+
+Con un movimiento rápido, Mine-Jaz tiró del puño de terciopelo negro de la manga izquierda de Orlov. Entre los delicados engranajes de latón de su muñeca mecánica brillaba una costra fresca de cardenillo verde: el sulfato de cobre desprendido por la tubería sobrecalentada, el mismo compuesto químico que tiñó de verde las velas del Relicario.
+
+—Además —añadió ella en voz baja—, hace media hora usted dijo que la Corona «acabaría en el fuego», antes de que nadie aquí supiera que iba camino al reactor. Lo hizo por las colonias agrícolas del borde exterior, ¿verdad? Pensó que si volaba la estación con toda la nobleza y la Flota Escama dentro, evitaría un tratado injusto.
+
+Orlov miró su muñeca manchada de verde y luego los ojos de su alumna más brillante. No dio excusas ni pronunció discursos. Simplemente asintió en silencio, con la pesada resignación de un hombre que sabía que había perdido la partida en el instante en que la entrenó a ella.
+
+—Pero la justicia no se construye sobre diez mil cadáveres inocentes en las cubiertas inferiores, Orlov —concluyó Mine-Jaz.
+
+Con un suspiro casi imperceptible, el anciano Senescal hizo su último movimiento: aplastó contra su propio fajín una ampolla de cristal negro que ocultaba en su anillo, liberando un «Cántico de Vacío» de la Primera Era dirigido hacia el gran ventanal ojival a espaldas de Mine-Jaz.
+
+El cristal blindado estalló hacia el espacio en millones de fragmentos.
+
+La descompresión fue instantánea y brutal. El huracán de aire aulló al escapar hacia los anillos de Vésper. Los guardias y Kaelen clavaron sus botas magnéticas en el suelo para sujetar a Orlov, pero la onda expansiva partió el soporte del cofre de plomo y lanzó a Mine-Jaz sobre el mármol escarchado directo hacia el abismo abierto.
+
+Junto al ventanal, Paoliño estaba aferrado con una pierna al conducto vertical de bronce, sosteniendo con el brazo derecho la tensa cadena de los noventa kilos de la Corona de Quásar, cuyo gancho de amarre acababa de soltarse por la sacudida y amenazaba con caer al vacío. Al mismo tiempo, a un metro de distancia, los dedos de Mine-Jaz resbalaron por el alféizar roto mientras el huracán la arrastraba hacia las estrellas.
+
+No podía sostener noventa kilos de estrella comprimida y atraparla a ella con un solo brazo.
+
+Paoliño no dudó ni una milésima de segundo. Soltó la cadena de la Corona —dejando que el cofre más valioso del imperio quedara enganchado precariamente de un solo eslabón torcido al borde del abismo— para liberar su brazo derecho, impulsarse en un giro vertiginoso alrededor del tubo de bronce y proyectarse hacia afuera como un péndulo humano. Su mano atrapó la muñeca de Mine-Jaz justo cuando ella salía despedida hacia la noche estelar.
+
+El tirón casi le disloca el hombro. Arriba, la compuerta de emergencia de titanio intentaba bajar para sellar la brecha, pero los engranajes rúnicos chisporroteaban bloqueados por el pulso de Orlov. Si no cerraban la ventana en tres segundos, el eslabón de la Corona cedería y la presión los lanzaría a ambos al espacio.
+
+Colgado de una sola corva en el tubo de bronce y sosteniendo a Mine-Jaz sobre el vacío con la mano derecha, Paoliño miró su mano izquierda, donde empuñaba *El Desfibrilador de Almas*, la llave sónica con núcleo de oro puro que había heredado de su padre.
+
+La lanzó con todas sus fuerzas directamente al centro de los engranajes rúnicos de la compuerta superior.
+
+El oro puro de la herramienta puenteó el cortocircuito en una explosión de luz azul. El pesado blindaje de titanio cayó como una guillotina a medio metro de las botas de Mine-Jaz, atrapando la cadena del cofre del lado de adentro y sellando el salón con un estruendo que devolvió la presión y el silencio a la galería.
+
+Mine-Jaz y Paoliño cayeron juntos sobre las baldosas, respirando agitadamente. Mientras los alabarderos se llevaban al derrotado Senescal Orlov y un agradecido Margrave Kaelen aseguraba el cofre de la Corona, Mine-Jaz no miró la joya real; miró a Paoliño, que había soltado un tesoro imperial sin pestañear para agarrar su mano, y luego miró los restos fundidos e irreconocibles de su llave sónica humeando en la pared.
+
+---
+
+**Escena V: Gravedad para dos**
+
+Esa noche, tras el cántico de coronación y la promesa del príncipe de revisar las cláusulas agrícolas bajo el consejo de la propia Mine-Jaz, las luces del Castillo-Estación *Valcora* brillaban en calma frente a los anillos plateados de Vésper.
+
+Mine-Jaz no quiso quedarse en el banquete. Estaba sentada en el alféizar de la torre de observación astronómica, con las piernas colgando sobre el jardín interior y los fragmentos rotos de su antiguo monóculo de plata guardados en un pañuelo sobre su regazo. Haber salvado diez mil vidas no borraba del todo la tristeza de haber tenido que arrestar a su propio maestro.
+
+Unos pasos metálicos y ligeramente descoordinados anunciaron la llegada de Paoliño antes de que abriera la puerta. Traía los hombros todavía doloridos por haber cargado noventa kilos de estrella enana, pero se había peinado con esmero. Se sentó junto a ella en silencio, abrió el bolsillo táctico izquierdo de su cinturón y sacó la última almendra de nebulosa acaramelada. La partió por la mitad y le dio la parte más grande.
+
+—Todavía siento que mido tres centímetros menos por culpa de esa dichosa cajita —murmuró él mientras masticaba. Luego metió la mano en su faltriquera derecha y dejó caer algo pequeño y tibio sobre el pañuelo de ella—. Toma. Ya no tiene la montura de aquel viejo cascarrabias, pero enfoca mejor que antes.
+
+Mine-Jaz bajó la vista. Era una lente nueva, pulida con el cristal de repuesto del telescopio real, engarzada en un aro de oro imperfecto pero reluciente: el oro fundido que Paoliño había rescatado de los restos de su propia herramienta destruida.
+
+Ella tomó el monóculo nuevo. Sus dedos rozaron los nudillos llenos de cicatrices del escudero y, en lugar de apartar la mano, entrelazó sus dedos con los de él y apoyó la cabeza contra su hombrera abollada.
+
+—Soltaste la Corona del reino y destruiste tu mejor llave sónica por mí, Paoliño.
+
+—Bah, la Corona no sabe apreciar un buen giro invertido, y la llave me arruinaba el centro de gravedad —dijo él, poniéndose colorado hasta las orejas. Para disimularlo, se puso de pie de un salto y miró el tubo de latón que sostenía el telescopio de la torre—. De hecho, sin ese peso extra mi técnica ha mejorado un doscientos por ciento. Mira esto, le llamo «La Supernova Seductora».
+
+Mine-Jaz soltó una carcajada genuina —ese sonido claro y luminoso que solo él lograba arrancarle— cuando Paoliño se agarró al tubo del telescopio y dio media vuelta lenta, solemne y terriblemente chirriante antes de enredarse con su propia capa. Esta vez ella no esperó a que cayera: se levantó, lo atrapó por las solapas del jubón antes de que tocara el suelo y lo besó mientras afuera, al otro lado del cristal abovedado, una lluvia de meteoros cruzaba los anillos de hielo y la armadura de su caballero seguía quejándose bajito contra el tubo de latón.
+
+---
+
+**Tres ideas para una secuela:**
+
+1. **Asesinato en el Expreso de Orión:** Durante sus primeras vacaciones oficiales a bordo de un galeón-tren que viaja por raíles magnéticos entre dos lunas, un embajador cibernético aparece petrificado en carbono dentro de un camarote sellado por dentro. Paoliño descubre que los tubos de las literas antigravedad son pésimos para bailar, pero excelentes para esconder contrabando cuántico.
+2. **La Cofradía del Plomo Frío:** Un misterioso hechizo-virus está apagando la voz de las cantoras del Coro Binario en las ciudades orbitales. Para infiltrarse en un torneo clandestino de caballeros mecánicos en los anillos exteriores, Mine-Jaz debe hacerse pasar por una dama apostadora y Paoliño por el gladiador más dramático de la galaxia.
+3. **El Fantasma del Dragón-Nave *Ignis-IX*:** El Margrave Kaelen contrata en secreto a Mine-Jaz y Paoliño porque su acorazado insignia de la Flota Escama ha empezado a navegar solo hacia un agujero negro, supuestamente poseído por el espíritu de un antiguo almirante, aunque las pistas forenses apuntan a un crimen perfecto en la cámara de criogenia.`,
+    
+    // Ilustraciones del cuento: momentos clave con las imágenes de la historia
+    illustrations: [
+      {
+        id: "ilus-1",
+        scene: "Escena I",
+        title: "Descubrimiento de la Gárgola Tibia",
+        caption: "Mine-Jaz examina con su monóculo de plata la rejilla de la gárgola de desagüe en el muro norte del Relicario y descubre limaduras de latón dorado en la grasa.",
+        quote: "«Quien hizo esto no sacó la Corona de la cámara, Paoliño... Nos está haciendo mirar hacia la puerta porque la joya jamás abandonó esta habitación.»",
+        badge: "Cámara del Relicario",
+        image: "ilustraciones/primer cuento/descrubrimiento_de_la_gargola_tibia.jpg",
+        svgType: "chamber"
+      },
+      {
+        id: "ilus-2",
+        scene: "Escena II",
+        title: "Los Tres Sospechosos frente a Mine-Jaz",
+        caption: "En la Galería de los Astrolabios, el Margrave Kaelen, Sor Sílice y el Senescal Orlov Vane esperan bajo la mirada analítica frente a los anillos de hielo de Vésper.",
+        quote: "«Los tres únicos sospechosos que habían participado en el ritual de sellado de la Corona la noche anterior.»",
+        badge: "Galería de los Astrolabios",
+        image: "ilustraciones/primer cuento/los_tres_sospechosos_frente_mine_jaz.jpg",
+        svgType: "gallery"
+      },
+      {
+        id: "ilus-3",
+        scene: "Escena II",
+        title: "El Falso Guantelete de Combate",
+        caption: "Mine-Jaz demuestra que el guantelete incriminatorio no tiene cicatrices de espada y salió de la armería ceremonial de repuesto que custodia Orlov.",
+        quote: "«Miren los nudillos de esa pieza... Es el guantelete ceremonial de repuesto que se guarda bajo triple llave en la Real Armería.»",
+        badge: "Mesa Holográfica",
+        image: "ilustraciones/primer cuento/falso_guantelete.jpg",
+        svgType: "gallery"
+      },
+      {
+        id: "ilus-4",
+        scene: "Escena III",
+        title: "Paoliño Distrayendo a los Guardias",
+        caption: "Paoliño salta con capa carmesí y armadura de titanio al centro de la nave del Coro para dar inicio a la única distracción táctica viable.",
+        quote: "«¡Nobles centinelas del vacío! ¡Contemplad el ritual sagrado de los caballeros de la Nebulosa Exterior!»",
+        badge: "Nave Central del Coro",
+        image: "ilustraciones/primer cuento/paolinodistrayendoalosguardias.jpg",
+        svgType: "acrobatics"
+      },
+      {
+        id: "ilus-5",
+        scene: "Escena III",
+        title: "El Giro del Fénix Desplumado",
+        caption: "El escudero-ingeniero se aferra al pilar maestro de bronce con chirridos estridentes, petrificando de confusión moral a los alabarderos de élite.",
+        quote: "«¡Sentid el vértigo del cosmos! —exclamó Paoliño desde las alturas del tubo, intentando una bandera humana mientras los guardias bajaban las alabardas.»",
+        badge: "Pilar de Presurización",
+        image: "ilustraciones/primer cuento/giro_del_fenix_desplumado.jpg",
+        svgType: "acrobatics"
+      },
+      {
+        id: "ilus-6",
+        scene: "Escena III",
+        title: "Descubrimiento de la Corona dentro de la Gárgola",
+        caption: "Mine-Jaz puentea el circuito de oro líquido y abre la compuerta de plomo frío, encontrando la reliquia con su núcleo de estrella enana.",
+        quote: "«Detrás del altar, Mine-Jaz usó una horquilla de cobre para puentear el circuito de oro líquido de la gárgola y abrir la compuerta de plomo. Adentro brillaba la Corona de Quásar.»",
+        badge: "Gárgola de Mantenimiento",
+        image: "ilustraciones/primer cuento/descubrimiento_delacoronadentrodelagargola.jpg",
+        svgType: "chamber"
+      },
+      {
+        id: "ilus-7",
+        scene: "Escena III",
+        title: "La Trampa de la Ballesta de Plasma",
+        caption: "La ballesta automática oculta en la barandilla del coro alto zumba y apunta directo al centro de la nave donde Paoliño ha quedado atascado boca abajo.",
+        quote: "«Orlov la conocía tan bien que había diseñado la trampa para matar a su escudero frente a sus ojos con el punto láser rojo en medio del pecho.»",
+        badge: "Coro Superior",
+        image: "ilustraciones/primer cuento/elmomentodelabasllestadeplasma.jpg",
+        svgType: "acrobatics"
+      },
+      {
+        id: "ilus-8",
+        scene: "Escena III",
+        title: "Mine-Jaz Desviando el Disparo con su Monóculo",
+        caption: "Mine-Jaz arranca su monóculo de plata y lo lanza con precisión letal para interceptar el rayo de plasma mortal en mil fragmentos brillantes.",
+        quote: "«La lente biselada interceptó el haz de plasma a mitad de camino; el cristal estalló en mil fragmentos, desviando el rayo mortal hacia un candelabro.»",
+        badge: "Intercepción Heroica",
+        image: "ilustraciones/primer cuento/mine-jaz-desvciandoeldisparoconsumonuculo.jpg",
+        svgType: "acrobatics"
+      },
+      {
+        id: "ilus-9",
+        scene: "Escena IV",
+        title: "Enfrentamiento Final con el Senescal Orlov",
+        caption: "Mine-Jaz tira de la manga de terciopelo de Orlov y descubre el cardenillo verde en los engranajes de latón de su muñeca mecánica de relojería.",
+        quote: "«Todo contacto deja un rastro, y todo lo que tocas te marca. Pero la justicia no se construye sobre diez mil cadáveres inocentes, Orlov.»",
+        badge: "Revelación Forense",
+        image: "ilustraciones/primer cuento/enfrentamientofinalconorlov.jpg",
+        svgType: "gallery"
+      },
+      {
+        id: "ilus-10",
+        scene: "Escena IV",
+        title: "Paoliño Salvando a Mine-Jaz en el Vacío",
+        caption: "Tras la descompresión hacia el espacio, Paoliño suelta los noventa kilos de la Corona para agarrar la muñeca de Mine-Jaz y sacrifica su llave sónica de oro.",
+        quote: "«Paoliño no dudó ni una milésima de segundo. Soltó la cadena de la Corona para atrapar la muñeca de Mine-Jaz justo cuando ella salía despedida hacia la noche estelar.»",
+        badge: "Brecha Espacial",
+        image: "ilustraciones/primer cuento/paolinosalvandoamine-jaz.jpg",
+        svgType: "sacrifice"
+      },
+      {
+        id: "ilus-11",
+        scene: "Escena V",
+        title: "Gravedad para Dos y el Monóculo de Oro",
+        caption: "En la torre de observación astronómica bajo la lluvia de meteoros, compartiendo la almendra acaramelada y sellando su alianza con un beso inolvidable.",
+        quote: "«Lo atrapó por las solapas del jubón antes de que tocara el suelo y lo besó mientras afuera, al otro lado del cristal abovedado, una lluvia de meteoros cruzaba los anillos de hielo.»",
+        badge: "Torre Astronómica",
+        image: "ilustraciones/primer cuento/ilustracionfinaldelcueto.jpg",
+        svgType: "romance"
+      }
+    ],
+
+    // Personajes y notas de campo
+    characters: [
+      {
+        name: "Mine-Jaz",
+        role: "Criminóloga Real del Trono Solar",
+        description: "Mente deductiva prodigiosa, ojos color ámbar y reflejos impecables. Capaz de desarmar una conspiración imperial a través del análisis de fluidos y huellas microscópicas.",
+        icon: "🔬",
+        quote: "«Nos está haciendo mirar hacia la puerta porque la joya jamás abandonó esta habitación.»"
+      },
+      {
+        name: "Paoliño",
+        role: "Escudero-Ingeniero & Bailarín de Combate",
+        description: "Media armadura de titanio, capa carmesí, lealtad a toda prueba y devoción por la 'danza del tubo' como táctica distractora de alta eficiencia. Siempre lleva almendras acarameladas.",
+        icon: "🛡️",
+        quote: "«Estaba fríamente calculado, mi señora.»"
+      },
+      {
+        name: "Senescal Orlov Vane",
+        role: "Administrador del Tesoro & Antiguo Mentor",
+        description: "Custodio de las llaves imperiales. Portador de una prótesis mecánica de relojería con engranajes de latón. Dispuesto a medidas extremas por los mundos agrícolas.",
+        icon: "⚙️",
+        quote: "«Esa Corona acabará en el fuego.»"
+      },
+      {
+        name: "Margrave Kaelen",
+        role: "Comandante de la Flota Escama",
+        description: "Coloso con armadura negra curtida en treinta campañas orbitales y mandoble de plasma. Su lealtad es brutal y directa.",
+        icon: "⚔️",
+        quote: "«Mientras buscas fantasmas, el ladrón ya debe haber saltado al hiperespacio.»"
+      },
+      {
+        name: "Sor Sílice",
+        role: "Abadesa del Coro Binario",
+        description: "Guardiana cibernética que modula cánticos en latín binario y código máquina para abrir las cerraduras sacras de la Primera Era.",
+        icon: "🎶",
+        quote: "«El código de los Antiguos no tolera falsedad.»"
+      }
+    ]
+  },
+  {
+    id: "expreso-orion",
+    title: "Asesinato en el Expreso de Orión",
+    author: "Crónicas del Trono Solar",
+    genre: "Misterio en Tren Espacial / Comedia / Ciencia Ficción",
+    synopsis: "Durante sus primeras vacaciones oficiales a bordo de un galeón-tren magnético interestelar, un embajador aparece petrificado en carbono en un camarote sellado. Mine-Jaz y Paoliño deben resolver el crimen antes de llegar a la estación terminal.",
+    coverStyle: "nebula-blue",
+    tagline: "Un camarote sellado por dentro, contrabando cuántico y literas antigravedad.",
+    contentRaw: `**Asesinato en el Expreso de Orión**
+
+*(Adelanto de la secuela)*
+
+El galeón-tren *Cometa de Aldebarán* hendía el vacío a lo largo de las vías magnéticas suspendidas entre las dos lunas de Orión. Mine-Jaz disfrutaba por fin de una copa de licor de cometa cuando el sonido inconfundible de metal chocando contra aleación resonó desde el pasillo de primera clase.
+
+—¡Por las barbas del Primer Navegante, Paoliño! ¿Es que no puedes subirte a una litera como un ser humano común?
+
+El escudero colgaba de las barras antigravedad del techo del camarote, vestido con pijama de seda carmesí sobre sus grebas de titanio indispensables.
+
+—Estudiaba las corrientes de convección térmica del vagón, mi amor. Y descubrí dos cosas: primero, el tubo de la litera tiene una fricción deliciosa para giros axiales; segundo... hay un compartimento secreto detrás de este panel con tres viales de hiper-esencia congelada.
+
+Antes de que Mine-Jaz pudiera felicitarlo o regañarlo, las alarmas de emergencia tiñeron los pasillos de escarlata. El Embajador Cydonia acababa de ser hallado en el vagón 4, convertido en una estatua de grafito puro dentro de un compartimento con la manija soldada desde el interior...
+
+*(Pronto podrás cargar o continuar este cuento completo en esta pestaña)*`,
+    illustrations: [
+      {
+        id: "expreso-1",
+        scene: "Prólogo",
+        title: "El Cometa de Aldebarán en la Vía Lunar",
+        caption: "El expreso magnético cruzando los puentes de plasma entre las dos lunas gemelas.",
+        quote: "«Un camarote sellado por dentro y literas que no perdonan un giro en falso.»",
+        badge: "Rieles Magnéticos",
+        svgType: "train"
+      }
+    ],
+    characters: [
+      {
+        name: "Embajador Cydonia",
+        role: "Víctima Cibernética",
+        description: "Diplomático de las lunas mineras encontrado petrificado en carbono sólido.",
+        icon: "💎",
+        quote: "«La paz requiere sacrificios que la carne no comprende.»"
+      }
+    ]
+  }
+];

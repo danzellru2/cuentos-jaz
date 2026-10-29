@@ -1,0 +1,2059 @@
+/* ==========================================================================
+   ESTILOS PRINCIPALES - LIBRO DIGITAL DE CUENTOS Y GALERÍA ILUSTRADA
+   ========================================================================== */
+
+:root {
+  /* Paleta Pergamino Imperial (Predeterminada) */
+  --bg-desktop: #08090f;
+  --bg-wood: #130e0a;
+  --book-cover-outer: #1c1815;
+  --book-cover-border: #d4af37;
+  --book-spine: #2c221e;
+  --paper-bg: #f9f5ea;
+  --paper-bg-subtle: #f2ebd9;
+  --paper-text: #2c251e;
+  --paper-heading: #1a1612;
+  --paper-accent: #8b0000;
+  --paper-border: #e0d5be;
+  --gold-primary: #d4af37;
+  --gold-glow: rgba(212, 175, 55, 0.45);
+  --page-shadow: rgba(0, 0, 0, 0.65);
+  --spine-shadow: rgba(0, 0, 0, 0.35);
+  --ribbon-red: #c62828;
+}
+
+/* ==========================================================================
+   AMBIENTES DE FONDO (MESA DE ESTUDIO / COSMOS / MÁRMOL)
+   ========================================================================== */
+
+/* 1. Estudio de Caoba Imperial (Mesa de madera noble con lámpara de lectura) */
+body.ambient-mahogany {
+  background-color: #0b0704;
+  background-image: 
+    /* Viñeta de luz central sobre el libro (foco cálido de lectura) */
+    radial-gradient(ellipse at 50% 48%, rgba(255, 224, 130, 0.16) 0%, rgba(212, 175, 55, 0.08) 35%, rgba(11, 7, 4, 0.95) 75%),
+    url('assets/clean_desk_bg.jpg'),
+    /* Vetas y textura de madera de caoba */
+    repeating-linear-gradient(90deg, 
+      rgba(44, 24, 16, 0.6) 0px, 
+      rgba(26, 14, 9, 0.65) 45px, 
+      rgba(38, 20, 13, 0.6) 90px, 
+      rgba(19, 10, 6, 0.7) 140px, 
+      rgba(44, 24, 16, 0.6) 200px),
+    /* Gradiente base de profundidad */
+    linear-gradient(to bottom, #0d0805, #160d08 40%, #080503);
+  background-size: cover, cover, auto, auto;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* 2. Castillo-Estación Valcora (Obsidiana y Nebulosa Cósmica) */
+body.ambient-valcora {
+  background-color: #03040a;
+  background-image: 
+    /* Nebulosa estelar violeta y cian */
+    radial-gradient(circle at 20% 30%, rgba(106, 27, 154, 0.22) 0%, transparent 50%),
+    radial-gradient(circle at 80% 65%, rgba(0, 229, 255, 0.15) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(21, 101, 192, 0.15) 0%, rgba(3, 4, 10, 0.95) 75%),
+    /* Suelo de obsidiana con sutiles losas espaciales */
+    linear-gradient(to bottom, #04060d, #090e1f 50%, #020306);
+  background-attachment: fixed;
+}
+
+/* 3. Relicario de Mármol Arcano (Mármol oscuro con vetas doradas) */
+body.ambient-marble {
+  background-color: #08090c;
+  background-image: 
+    radial-gradient(circle at 50% 45%, rgba(212, 175, 55, 0.14) 0%, rgba(8, 9, 12, 0.95) 70%),
+    linear-gradient(135deg, rgba(212, 175, 55, 0.04) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(212, 175, 55, 0.04) 25%, transparent 25%),
+    linear-gradient(to bottom, #090b10, #111522 55%, #050608);
+  background-attachment: fixed;
+}
+
+/* Canvas de partículas de polvo atmosférico */
+.ambient-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.75;
+}
+
+/* Tema Noche Estelar / Dark Sci-Fi */
+body.theme-night {
+  --bg-desktop: #030408;
+  --bg-wood: #080a14;
+  --book-cover-outer: #0b0f19;
+  --book-cover-border: #00e5ff;
+  --book-spine: #050811;
+  --paper-bg: #101524;
+  --paper-bg-subtle: #0c101c;
+  --paper-text: #d8e2ec;
+  --paper-heading: #ffffff;
+  --paper-accent: #00e5ff;
+  --paper-border: #1e293b;
+  --gold-primary: #00e5ff;
+  --gold-glow: rgba(0, 229, 255, 0.35);
+  --spine-shadow: rgba(0, 0, 0, 0.55);
+}
+
+/* Tema Sepia Antiguo */
+body.theme-sepia {
+  --bg-desktop: #1e1510;
+  --bg-wood: #2a1f18;
+  --book-cover-outer: #332014;
+  --book-cover-border: #b8860b;
+  --book-spine: #26160d;
+  --paper-bg: #eee0c9;
+  --paper-bg-subtle: #e4d1b5;
+  --paper-text: #3d2b1f;
+  --paper-heading: #26170d;
+  --paper-accent: #800000;
+  --paper-border: #d2be9e;
+  --gold-primary: #c99732;
+  --gold-glow: rgba(201, 151, 50, 0.35);
+}
+
+/* Tema Blanco Puro */
+body.theme-clean {
+  --bg-desktop: #e2e8f0;
+  --bg-wood: #cbd5e1;
+  --book-cover-outer: #334155;
+  --book-cover-border: #64748b;
+  --book-spine: #1e293b;
+  --paper-bg: #ffffff;
+  --paper-bg-subtle: #f8fafc;
+  --paper-text: #1e293b;
+  --paper-heading: #0f172a;
+  --paper-accent: #0284c7;
+  --paper-border: #e2e8f0;
+  --gold-primary: #0284c7;
+  --gold-glow: rgba(2, 132, 199, 0.25);
+}
+
+/* Reset y Bases */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Cinzel', 'Merriweather', 'Georgia', serif;
+  background: var(--bg-desktop);
+  background-image: 
+    radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(0, 229, 255, 0.03) 0%, transparent 50%),
+    linear-gradient(to bottom, #070910, #0a0e1c);
+  color: var(--paper-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ==========================================================================
+   BARRA SUPERIOR: PESTAÑAS DE CUENTOS & NAVEGACIÓN
+   ========================================================================== */
+
+.app-topbar {
+  background: rgba(10, 14, 26, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 8px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  font-size: 24px;
+  filter: drop-shadow(0 0 8px var(--gold-primary));
+}
+
+.brand-title {
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: #f1f5f9;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #fff, #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.story-tabs-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  max-width: 100%;
+  padding-bottom: 2px;
+}
+
+.story-tabs-list {
+  display: flex;
+  gap: 8px;
+}
+
+.story-tab-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: #cbd5e1;
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.story-tab-btn:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--gold-primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.story-tab-btn.active {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1));
+  border-color: var(--gold-primary);
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+
+.story-tab-btn.add-story-btn {
+  border-style: dashed;
+  border-color: #64748b;
+  color: #94a3b8;
+}
+
+.story-tab-btn.add-story-btn:hover {
+  border-color: #00e5ff;
+  color: #00e5ff;
+  background: rgba(0, 229, 255, 0.1);
+}
+
+/* ==========================================================================
+   BARRA SECUNDARIA: SECCIONES (LIBRO, GALERÍA, PERSONAJES) & AJUSTES
+   ========================================================================== */
+
+.sub-nav {
+  background: rgba(14, 18, 32, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 6px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nav-views-group {
+  display: flex;
+  gap: 6px;
+}
+
+.nav-tab-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 8px 16px;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-tab-btn:hover {
+  color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-tab-btn.active {
+  color: var(--gold-primary);
+  font-weight: 600;
+  background: rgba(212, 175, 55, 0.1);
+  border-bottom: 2px solid var(--gold-primary);
+}
+
+.reading-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2px 4px;
+}
+
+.ctrl-btn {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  font-family: inherit;
+  font-size: 13px;
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.ctrl-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.theme-btn.active,
+.ambient-btn.active {
+  color: var(--gold-primary);
+  font-weight: bold;
+  background: rgba(212, 175, 55, 0.2);
+  border-radius: 4px;
+}
+
+/* Elementos del Drawer de Ajustes (Ocultos en Desktop) */
+.settings-btn {
+  display: none;
+}
+
+.controls-drawer-header {
+  display: none;
+}
+
+.drawer-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 180;
+}
+
+/* ==========================================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================================== */
+
+.main-content-area {
+  flex: 1;
+  padding: 24px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.tab-view-panel {
+  display: none;
+  width: 100%;
+}
+
+.tab-view-panel.active {
+  display: block;
+}
+
+/* ==========================================================================
+   ESTRUCTURA DEL LIBRO EN 3D / VISTA REALISTA
+   ========================================================================== */
+
+.book-workspace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.book-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1180px;
+  min-height: 720px;
+  margin: 15px auto;
+  perspective: 2500px;
+  /* Reflejo y sombra tridimensional sobre la mesa */
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.85)) drop-shadow(0 45px 80px rgba(0, 0, 0, 0.65));
+}
+
+/* Encuadernación / Tapa de cuero exterior */
+.book-spine-binding {
+  position: relative;
+  width: 100%;
+  min-height: 700px;
+  background: var(--book-cover-outer);
+  border: 12px solid #231c17;
+  border-radius: 12px;
+  box-shadow: 
+    0 30px 85px rgba(0, 0, 0, 0.85),
+    0 0 0 2px var(--book-cover-border),
+    0 0 30px var(--gold-glow),
+    inset 0 0 50px rgba(0, 0, 0, 0.92);
+  display: flex;
+  overflow: hidden;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.4s ease;
+}
+
+/* Esquinas decorativas de orfebrería */
+.book-spine-binding::before,
+.book-spine-binding::after {
+  content: "❖";
+  position: absolute;
+  font-size: 20px;
+  color: var(--gold-primary);
+  opacity: 0.6;
+}
+
+.book-spine-binding::before { top: 6px; left: 8px; }
+.book-spine-binding::after { bottom: 6px; right: 8px; }
+
+/* El Pliegue y Páginas Abiertas */
+.book-pages-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 680px;
+  position: relative;
+  background: var(--paper-bg);
+  border-radius: 4px;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.08);
+  perspective: 2600px;
+  transform-style: preserve-3d;
+}
+
+/* ==========================================================================
+   ANIMACIÓN 3D REALISTA DE PASO DE PÁGINAS (PAGE FLIP 3D)
+   ========================================================================== */
+
+/* Hoja dinámica que se levanta y voltea en el espacio 3D */
+.flipping-leaf {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 50;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  overflow: visible;
+  transition: transform 0.58s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Giro hacia adelante: se despega de la derecha y vuela a la izquierda */
+.flipping-leaf.flip-to-left {
+  left: 50%;
+  transform-origin: left center;
+  transform: rotateY(0deg);
+}
+
+.flipping-leaf.flip-to-left.turning {
+  transform: rotateY(-180deg);
+}
+
+/* Giro hacia atrás: se despega de la izquierda y vuela a la derecha */
+.flipping-leaf.flip-to-right {
+  left: 50%;
+  transform-origin: left center;
+  transform: rotateY(-180deg);
+}
+
+.flipping-leaf.flip-to-right.turning {
+  transform: rotateY(0deg);
+}
+
+/* Caras de la hoja volante */
+.leaf-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--paper-bg);
+  padding: 40px 45px 35px;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.18);
+  border-radius: 2px;
+}
+
+.leaf-front {
+  transform: rotateY(0deg);
+  border-left: 1px solid var(--paper-border);
+}
+
+.leaf-back {
+  transform: rotateY(180deg);
+  border-right: 1px solid var(--paper-border);
+}
+
+/* Sombras dinámicas de curvatura y cilindro que se proyectan sobre la hoja */
+.leaf-shadow-front,
+.leaf-shadow-back {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity 0.58s ease;
+}
+
+.leaf-shadow-front {
+  background: linear-gradient(to right, 
+    rgba(0, 0, 0, 0.38) 0%, 
+    rgba(0, 0, 0, 0.15) 15%, 
+    rgba(255, 255, 255, 0.18) 45%, 
+    rgba(0, 0, 0, 0.06) 80%, 
+    rgba(0, 0, 0, 0.28) 100%);
+  opacity: 0;
+}
+
+.flipping-leaf.turning .leaf-shadow-front {
+  opacity: 0.85;
+}
+
+.leaf-shadow-back {
+  background: linear-gradient(to left, 
+    rgba(0, 0, 0, 0.38) 0%, 
+    rgba(0, 0, 0, 0.15) 15%, 
+    rgba(255, 255, 255, 0.18) 45%, 
+    rgba(0, 0, 0, 0.06) 80%, 
+    rgba(0, 0, 0, 0.28) 100%);
+  opacity: 0;
+}
+
+.flipping-leaf.turning .leaf-shadow-back {
+  opacity: 0.85;
+}
+
+/* Sombra proyectada sobre la página que recibe la hoja */
+.page-landing-shadow {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  pointer-events: none;
+  z-index: 45;
+  transition: opacity 0.58s ease;
+  opacity: 0;
+}
+
+.page-landing-shadow.on-left {
+  left: 0;
+  background: linear-gradient(to right, transparent 40%, rgba(0, 0, 0, 0.35) 100%);
+}
+
+.page-landing-shadow.on-right {
+  left: 50%;
+  background: linear-gradient(to left, transparent 40%, rgba(0, 0, 0, 0.35) 100%);
+}
+
+.page-landing-shadow.active {
+  opacity: 1;
+}
+
+/* Animación de paso de página en móvil (1 página) */
+.mobile-page-flip-next {
+  animation: mobileTurnNext 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.mobile-page-flip-prev {
+  animation: mobileTurnPrev 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes mobileTurnNext {
+  0% { transform: perspective(1000px) rotateY(0deg) translateX(0); opacity: 1; }
+  50% { transform: perspective(1000px) rotateY(-40deg) translateX(-15px) scale(0.96); opacity: 0.7; }
+  100% { transform: perspective(1000px) rotateY(0deg) translateX(0) scale(1); opacity: 1; }
+}
+
+@keyframes mobileTurnPrev {
+  0% { transform: perspective(1000px) rotateY(0deg) translateX(0); opacity: 1; }
+  50% { transform: perspective(1000px) rotateY(40deg) translateX(15px) scale(0.96); opacity: 0.7; }
+  100% { transform: perspective(1000px) rotateY(0deg) translateX(0) scale(1); opacity: 1; }
+}
+
+/* Lomo central y sombra de profundidad */
+.book-center-crease {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 50px;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, 
+    rgba(0, 0, 0, 0.22) 0%, 
+    rgba(0, 0, 0, 0.03) 40%, 
+    rgba(0, 0, 0, 0.28) 50%, 
+    rgba(0, 0, 0, 0.03) 60%, 
+    rgba(0, 0, 0, 0.22) 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Cinta marcapáginas carmesí */
+.book-bookmark-ribbon {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 26px;
+  height: 180px;
+  background: var(--ribbon-red);
+  transform: translateX(-50%);
+  z-index: 12;
+  box-shadow: 2px 4px 12px rgba(0,0,0,0.5);
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0 88%);
+  cursor: pointer;
+  transition: height 0.3s ease;
+}
+
+.book-bookmark-ribbon:hover {
+  height: 220px;
+}
+
+/* Páginas Izquierda y Derecha */
+.book-page {
+  flex: 1;
+  padding: 40px 45px 35px;
+  color: var(--paper-text);
+  overflow-y: auto;
+  position: relative;
+  user-select: text;
+  line-height: 1.85;
+}
+
+.book-page-left {
+  border-right: 1px solid var(--paper-border);
+  box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.04);
+}
+
+.book-page-right {
+  box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.04);
+}
+
+/* Número de página en pie */
+.page-footer-num {
+  position: absolute;
+  bottom: 12px;
+  font-size: 12px;
+  color: #888;
+  letter-spacing: 1px;
+}
+
+.book-page-left .page-footer-num { left: 45px; }
+.book-page-right .page-footer-num { right: 45px; }
+
+/* Efecto de vuelta de página */
+.page-flip-anim {
+  animation: pageTurnGlow 0.45s ease-out;
+}
+
+@keyframes pageTurnGlow {
+  0% { filter: brightness(0.92); opacity: 0.85; }
+  100% { filter: brightness(1); opacity: 1; }
+}
+
+/* ==========================================================================
+   TIPOGRAFÍA Y CONTENIDO DEL CUENTO
+   ========================================================================== */
+
+.page-text-content {
+  font-family: 'Merriweather', 'Georgia', serif;
+  text-align: justify;
+}
+
+.page-top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--paper-border);
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #777;
+}
+
+.story-mini-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
+}
+
+.header-gem {
+  color: var(--gold-primary);
+}
+
+/* Encabezados de Escenas con Ornamentos */
+.scene-heading-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 30px 0 20px;
+  text-align: center;
+}
+
+.heading-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
+}
+
+.scene-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15em;
+  color: var(--paper-heading);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* Párrafos y Diálogos */
+.story-paragraph {
+  margin-bottom: 16px;
+  text-indent: 1.5em;
+}
+
+.story-paragraph:first-of-type {
+  text-indent: 0;
+}
+
+.dialogue-dash {
+  font-weight: bold;
+  color: var(--paper-accent);
+  margin-right: 4px;
+}
+
+/* Capitular (Drop Cap) */
+.has-dropcap::first-letter {
+  font-family: 'Cinzel', serif;
+  float: left;
+  font-size: 3.6em;
+  line-height: 0.85;
+  padding-top: 4px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  color: var(--paper-accent);
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Portada Interior */
+.book-cover-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 30px 20px;
+  border: 2px solid var(--paper-border);
+  position: relative;
+}
+
+.cover-badge {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--paper-accent);
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--paper-border);
+  padding-bottom: 4px;
+}
+
+.cover-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2em;
+  color: var(--paper-heading);
+  line-height: 1.25;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.cover-divider {
+  color: var(--gold-primary);
+  font-size: 16px;
+  letter-spacing: 6px;
+  margin-bottom: 14px;
+}
+
+.cover-author {
+  font-size: 1.1em;
+  font-style: italic;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.cover-tagline {
+  font-size: 0.95em;
+  font-style: italic;
+  color: var(--paper-accent);
+  margin-bottom: 20px;
+  max-width: 85%;
+}
+
+.cover-synopsis-box {
+  background: var(--paper-bg-subtle);
+  border: 1px solid var(--paper-border);
+  padding: 16px 20px;
+  border-radius: 6px;
+  font-size: 0.88em;
+  line-height: 1.6;
+  text-align: justify;
+  max-width: 90%;
+  margin-bottom: 24px;
+}
+
+.cover-instructions {
+  font-size: 12px;
+  color: #888;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 1px;
+}
+
+.blank-end-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: #888;
+}
+
+.blank-end-page .ornament {
+  font-size: 24px;
+  color: var(--gold-primary);
+  margin-bottom: 16px;
+}
+
+/* ==========================================================================
+   BARRA DE NAVEGACIÓN Y PROGRESO DE LECTURA
+   ========================================================================== */
+
+.book-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1180px;
+  margin-top: 14px;
+  padding: 8px 12px;
+  background: rgba(14, 18, 32, 0.7);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-arrow-btn {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+  border: 1px solid var(--gold-primary);
+  color: #f1f5f9;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-arrow-btn:hover:not(:disabled) {
+  background: var(--gold-primary);
+  color: #000;
+  box-shadow: 0 0 14px var(--gold-glow);
+  transform: translateY(-1px);
+}
+
+.nav-arrow-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  border-color: #555;
+}
+
+.progress-center-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  max-width: 450px;
+  margin: 0 20px;
+}
+
+.book-progress-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.book-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, var(--gold-primary), #ffd54f);
+  transition: width 0.3s ease;
+}
+
+.progress-label {
+  font-size: 12px;
+  color: #94a3b8;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   GALERÍA ILUSTRADA
+   ========================================================================== */
+
+.gallery-section-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 26px;
+  color: #f8fafc;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #ffffff, var(--gold-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: #94a3b8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 28px;
+  width: 100%;
+}
+
+.gallery-card {
+  background: rgba(17, 24, 39, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-primary);
+  box-shadow: 0 15px 35px var(--gold-glow);
+}
+
+.card-image-box {
+  position: relative;
+  width: 100%;
+  padding-top: 62.5%; /* Relación 16:10 */
+  background: #060810;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.card-image-box .story-svg,
+.card-image-box .custom-story-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card-image-box:hover .story-svg,
+.card-image-box:hover .custom-story-img {
+  transform: scale(1.04);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.card-image-box:hover .card-overlay {
+  opacity: 1;
+}
+
+.zoom-pill {
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid var(--gold-primary);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.scene-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(10, 14, 26, 0.85);
+  border: 1px solid var(--gold-primary);
+  color: var(--gold-primary);
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.card-scene-num {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  color: var(--gold-primary);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.replace-img-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.replace-img-btn:hover {
+  border-color: #00e5ff;
+  color: #00e5ff;
+}
+
+.card-title {
+  font-size: 17px;
+  color: #f1f5f9;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.card-caption {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.card-quote {
+  font-size: 12.5px;
+  font-style: italic;
+  color: #cbd5e1;
+  border-left: 2px solid var(--gold-primary);
+  padding-left: 12px;
+  margin-top: auto;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   DOSSIER DE PERSONAJES
+   ========================================================================== */
+
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 22px;
+  width: 100%;
+}
+
+.character-card {
+  background: rgba(17, 24, 39, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 10px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.25s;
+}
+
+.character-card:hover {
+  border-color: var(--gold-primary);
+}
+
+.char-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.char-icon {
+  font-size: 32px;
+  width: 52px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--gold-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.char-name {
+  font-size: 18px;
+  color: #f8fafc;
+  font-family: 'Cinzel', serif;
+}
+
+.char-role {
+  font-size: 12px;
+  color: var(--gold-primary);
+  letter-spacing: 1px;
+}
+
+.char-desc {
+  font-size: 13.5px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.char-quote {
+  font-size: 13px;
+  font-style: italic;
+  color: #cbd5e1;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 8px 12px;
+  border-radius: 6px;
+  border-left: 2px solid var(--gold-primary);
+}
+
+/* ==========================================================================
+   MODALES (LIGHTBOX, ÍNDICE, NUEVO CUENTO)
+   ========================================================================== */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-card {
+  background: #0f1322;
+  border: 1px solid var(--gold-primary);
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  padding: 28px;
+  position: relative;
+  color: #f1f5f9;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 12px;
+}
+
+.modal-title {
+  font-size: 20px;
+  color: var(--gold-primary);
+  font-family: 'Cinzel', serif;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 22px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #fff;
+}
+
+/* Lightbox Modal Específico */
+.lightbox-card {
+  max-width: 950px;
+  padding: 20px;
+  background: #0a0c16;
+}
+
+.lightbox-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.lightbox-img-box {
+  width: 100%;
+  max-height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  background: #020307;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-img-box svg,
+.lightbox-img-box img {
+  width: 100%;
+  height: auto;
+  max-height: 65vh;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.lightbox-index-badge {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  color: var(--gold-primary);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--gold-primary);
+  padding: 3px 10px;
+  border-radius: 12px;
+  letter-spacing: 1px;
+}
+
+.lightbox-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(10, 14, 26, 0.85);
+  border: 1px solid var(--gold-primary);
+  color: #fff;
+  font-size: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.lightbox-nav-arrow:hover {
+  background: var(--gold-primary);
+  color: #000;
+  box-shadow: 0 0 15px var(--gold-glow);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-nav-arrow.prev {
+  left: 8px;
+}
+
+.lightbox-nav-arrow.next {
+  right: 8px;
+}
+
+/* Botón interactivo de ilustración dentro de las páginas del libro */
+.page-illustration-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 18px 0;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+  border: 1px solid var(--gold-primary);
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Cinzel', serif;
+  font-size: 11.5px;
+  color: var(--paper-heading);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.page-illustration-pill:hover {
+  background: var(--gold-primary);
+  color: #000;
+  box-shadow: 0 0 12px var(--gold-glow);
+  transform: translateY(-1px);
+}
+
+.lightbox-details {
+  padding: 10px;
+}
+
+.lightbox-details h3 {
+  font-size: 20px;
+  color: #f8fafc;
+  margin-bottom: 6px;
+}
+
+.lightbox-details p {
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.lightbox-quote {
+  font-style: italic;
+  color: var(--gold-primary);
+  border-left: 2px solid var(--gold-primary);
+  padding-left: 14px;
+}
+
+/* Lista de Índice */
+.toc-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toc-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.2s;
+}
+
+.toc-item:hover {
+  background: rgba(212, 175, 55, 0.15);
+  transform: translateX(4px);
+}
+
+.toc-num {
+  font-size: 12px;
+  color: var(--gold-primary);
+  font-weight: bold;
+  min-width: 55px;
+}
+
+.toc-label {
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+/* Formulario Nuevo Cuento */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  color: #cbd5e1;
+  margin-bottom: 6px;
+  font-family: 'Cinzel', serif;
+}
+
+.form-control {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+}
+
+.file-dropzone {
+  border: 2px dashed rgba(212, 175, 55, 0.4);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 16px;
+  background: rgba(212, 175, 55, 0.03);
+  transition: all 0.2s;
+}
+
+.file-dropzone:hover,
+.file-dropzone.dragover {
+  border-color: var(--gold-primary);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.action-btn {
+  background: linear-gradient(135deg, var(--gold-primary), #b78103);
+  border: none;
+  color: #000;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  filter: brightness(1.15);
+  box-shadow: 0 0 15px var(--gold-glow);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MÓVILES, TABLETS Y PANTALLAS PEQUEÑAS)
+   ========================================================================== */
+
+@media (max-width: 850px) {
+  /* Barra Superior Compacta */
+  .app-topbar {
+    padding: 6px 10px;
+    gap: 6px;
+    min-height: 42px;
+  }
+
+  .brand-section {
+    gap: 6px;
+  }
+
+  .brand-icon {
+    font-size: 18px;
+  }
+
+  .brand-title {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+
+  .story-tabs-wrapper {
+    width: 100%;
+    margin-top: 1px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .story-tabs-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .story-tabs-list {
+    flex-wrap: nowrap;
+    gap: 5px;
+  }
+
+  .story-tab-btn {
+    padding: 4px 10px;
+    font-size: 11px;
+    border-radius: 14px;
+  }
+
+  /* Sub-Barra de Navegación Compacta en 1 sola fila */
+  .sub-nav {
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 6px;
+    min-height: 38px;
+  }
+
+  .nav-views-group {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3px;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .nav-tab-btn {
+    padding: 5px 2px;
+    font-size: 11px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+    gap: 3px;
+    border-bottom: none !important;
+  }
+
+  .nav-tab-btn.active {
+    background: rgba(212, 175, 55, 0.2);
+  }
+
+  .nav-icon {
+    font-size: 13px;
+  }
+
+  .nav-btn-text {
+    font-size: 10px;
+  }
+
+  /* Mostrar botón de ajustes en móvil */
+  .settings-btn {
+    display: flex;
+  }
+
+  /* Drawer Emergente de Ajustes de Lectura en Móvil */
+  .reading-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 300;
+    background: rgba(14, 18, 32, 0.98);
+    backdrop-filter: blur(20px);
+    border-top: 2px solid var(--gold-primary);
+    border-radius: 16px 16px 0 0;
+    padding: 16px 16px 26px;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transform: translateY(115%);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: none;
+    overflow-x: hidden;
+  }
+
+  .reading-controls.open {
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .drawer-backdrop.active {
+    display: block;
+  }
+
+  .controls-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--gold-primary);
+  }
+
+  .close-settings-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .control-group {
+    padding: 3px 6px;
+    justify-content: space-around;
+  }
+
+  .ctrl-btn {
+    padding: 6px 10px;
+    font-size: 13px;
+    min-height: 36px;
+  }
+
+  #soundToggleBtn {
+    font-size: 12px;
+    padding: 8px 12px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Área Principal - Ocupa la pantalla eficientemente */
+  .main-content-area {
+    padding: 6px 6px 14px;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Libro Adaptable en Teléfono */
+  .book-workspace {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .book-wrapper {
+    width: 100%;
+    max-width: 100%;
+    flex: 1;
+    min-height: unset;
+    height: auto;
+    margin: 2px auto;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.8));
+  }
+
+  .book-spine-binding {
+    width: 100%;
+    height: calc(100dvh - 165px);
+    min-height: 400px;
+    max-height: 750px;
+    border-width: 4px;
+    border-radius: 8px;
+    padding: 3px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 0 1.5px var(--book-cover-border);
+  }
+
+  .book-spine-binding::before { top: 3px; left: 4px; font-size: 12px; }
+  .book-spine-binding::after { bottom: 3px; right: 4px; font-size: 12px; }
+
+  .book-pages-container {
+    width: 100%;
+    height: 100%;
+    min-height: unset;
+    border-radius: 4px;
+  }
+
+  /* Ocultar página derecha y pliegue central */
+  .book-page-right,
+  .book-center-crease {
+    display: none !important;
+  }
+
+  /* Página única de lectura */
+  .book-page-left {
+    width: 100%;
+    height: 100%;
+    border-right: none;
+    box-shadow: none;
+    padding: 16px 14px 28px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  /* Cinta marcapáginas a la DERECHA para NO tapar el texto ni la capitular */
+  .book-bookmark-ribbon {
+    left: auto !important;
+    right: 18px !important;
+    top: -4px;
+    width: 14px;
+    height: 48px;
+    transform: none;
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .book-bookmark-ribbon:hover {
+    height: 55px;
+  }
+
+  .book-page-left .page-footer-num {
+    left: 14px;
+    bottom: 6px;
+    font-size: 10.5px;
+  }
+
+  /* Tipografía y Lectura Móvil Cómoda */
+  .page-text-content {
+    text-align: left;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .page-top-header {
+    font-size: 9.5px;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+  }
+
+  .story-mini-title {
+    max-width: 80%;
+  }
+
+  .story-paragraph {
+    margin-bottom: 12px;
+    text-indent: 1em;
+    line-height: 1.65;
+  }
+
+  .has-dropcap::first-letter {
+    font-size: 2.6em;
+    padding-right: 6px;
+    padding-top: 1px;
+    line-height: 0.85;
+  }
+
+  .scene-heading-ornament {
+    margin: 16px 0 10px;
+    gap: 6px;
+  }
+
+  .scene-title {
+    font-size: 0.9em;
+  }
+
+  /* Portada Interior en Móvil */
+  .book-cover-inner {
+    padding: 12px 8px;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+  }
+
+  .cover-badge {
+    font-size: 9px;
+    margin-bottom: 4px;
+  }
+
+  .cover-title {
+    font-size: 1.25em;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+
+  .cover-divider {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+
+  .cover-author {
+    font-size: 0.85em;
+    margin-bottom: 8px;
+  }
+
+  .cover-tagline {
+    font-size: 0.8em;
+    margin-bottom: 8px;
+    max-width: 95%;
+  }
+
+  .cover-synopsis-box {
+    font-size: 0.78em;
+    padding: 8px 10px;
+    line-height: 1.45;
+    margin-bottom: 10px;
+    max-width: 100%;
+  }
+
+  .cover-instructions {
+    font-size: 10.5px;
+  }
+
+  /* Barra de Navegación Inferior Móvil Fija */
+  .book-bottom-bar {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 5px;
+    padding: 5px 8px;
+    gap: 5px;
+  }
+
+  .nav-arrow-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+    border-radius: 6px;
+    min-height: 34px;
+  }
+
+  .progress-center-box {
+    margin: 0 2px;
+  }
+
+  .progress-label {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  /* Galería Ilustrada en Móvil */
+  .gallery-section-header {
+    margin-bottom: 14px;
+  }
+
+  .gallery-section-header .section-title {
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+
+  .gallery-section-header .section-subtitle {
+    font-size: 12px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .gallery-card {
+    border-radius: 8px;
+  }
+
+  .card-content {
+    padding: 12px;
+  }
+
+  .card-title {
+    font-size: 14px;
+  }
+
+  .card-caption {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .card-quote {
+    font-size: 11.5px;
+    padding-left: 8px;
+  }
+
+  /* Dossier en Móvil */
+  .characters-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .character-card {
+    padding: 14px;
+    border-radius: 8px;
+  }
+
+  .char-icon {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .char-name {
+    font-size: 15px;
+  }
+
+  .char-desc {
+    font-size: 12.5px;
+  }
+
+  /* Modales en Móvil */
+  .modal {
+    padding: 8px;
+  }
+
+  .modal-card {
+    width: 95%;
+    max-height: 88vh;
+    padding: 16px 12px;
+    border-radius: 8px;
+  }
+
+  .modal-title {
+    font-size: 16px;
+  }
+
+  .form-control {
+    font-size: 16px; /* Evita zoom forzado en iOS */
+    padding: 8px 10px;
+  }
+
+  .file-dropzone {
+    padding: 12px;
+  }
+
+  /* Lightbox en Móvil */
+  .lightbox-card {
+    max-width: 96%;
+    padding: 10px;
+  }
+
+  .lightbox-img-box {
+    max-height: 40vh;
+    margin-bottom: 10px;
+  }
+
+  .lightbox-details h3 {
+    font-size: 15px;
+  }
+
+  .lightbox-details p {
+    font-size: 12.5px;
+    margin-bottom: 6px;
+  }
+
+  .lightbox-quote {
+    font-size: 11.5px;
+  }
+}
+
+/* Pantallas bajas / Orientación Horizontal (ej. iPhone SE Landscape 667x375) */
+@media (max-height: 520px) {
+  .app-topbar {
+    padding: 2px 8px;
+    min-height: 32px;
+    gap: 4px;
+  }
+
+  .brand-icon {
+    font-size: 15px;
+  }
+
+  .brand-title {
+    font-size: 12px;
+  }
+
+  .story-tab-btn {
+    padding: 2px 7px;
+    font-size: 10px;
+  }
+
+  .sub-nav {
+    padding: 2px 4px;
+    min-height: 26px;
+  }
+
+  .nav-tab-btn {
+    padding: 2px 2px;
+    font-size: 9.5px;
+  }
+
+  .main-content-area {
+    padding: 2px 4px 6px;
+  }
+
+  .book-spine-binding {
+    height: calc(100dvh - 100px);
+    min-height: 200px;
+    max-height: unset;
+    border-width: 3px;
+    padding: 2px;
+  }
+
+  .book-page-left {
+    padding: 10px 12px 20px;
+  }
+
+  .book-bottom-bar {
+    margin-top: 3px;
+    padding: 3px 6px;
+  }
+
+  .nav-arrow-btn {
+    padding: 4px 8px;
+    font-size: 10px;
+    min-height: 26px;
+  }
+
+  .book-bookmark-ribbon {
+    height: 32px;
+  }
+}
+
+/* Teléfonos extremadamente pequeños (< 360px) */
+@media (max-width: 360px) {
+  .brand-title {
+    font-size: 11.5px;
+  }
+
+  .nav-btn-text {
+    display: none;
+  }
+
+  .nav-icon {
+    font-size: 16px;
+  }
+
+  .btn-arrow-text {
+    display: none;
+  }
+
+  .book-spine-binding {
+    height: calc(100dvh - 150px);
+    min-height: 360px;
+  }
+}
