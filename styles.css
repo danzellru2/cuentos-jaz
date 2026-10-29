@@ -23,51 +23,50 @@
 }
 
 /* ==========================================================================
-   AMBIENTES DE FONDO (MESA DE ESTUDIO / COSMOS / MÁRMOL)
+   AMBIENTES DE FONDO (ATMÓSFERAS INMERSIVAS DE LECTURA)
    ========================================================================== */
 
-/* 1. Estudio de Caoba Imperial (Mesa de madera noble con lámpara de lectura) */
+/* 1. Estudio Imperial (Mesa de caoba noble y foco cálido de lectura) */
 body.ambient-mahogany {
-  background-color: #0b0704;
+  background-color: #0a0807;
   background-image: 
-    /* Viñeta de luz central sobre el libro (foco cálido de lectura) */
-    radial-gradient(ellipse at 50% 48%, rgba(255, 224, 130, 0.16) 0%, rgba(212, 175, 55, 0.08) 35%, rgba(11, 7, 4, 0.95) 75%),
-    url('assets/clean_desk_bg.jpg'),
-    /* Vetas y textura de madera de caoba */
-    repeating-linear-gradient(90deg, 
-      rgba(44, 24, 16, 0.6) 0px, 
-      rgba(26, 14, 9, 0.65) 45px, 
-      rgba(38, 20, 13, 0.6) 90px, 
-      rgba(19, 10, 6, 0.7) 140px, 
-      rgba(44, 24, 16, 0.6) 200px),
-    /* Gradiente base de profundidad */
-    linear-gradient(to bottom, #0d0805, #160d08 40%, #080503);
-  background-size: cover, cover, auto, auto;
-  background-position: center;
+    /* Spotlight de lectura sutil centrado detrás del libro */
+    radial-gradient(ellipse 75% 65% at 50% 46%, rgba(215, 162, 85, 0.13) 0%, rgba(130, 80, 35, 0.05) 45%, rgba(10, 8, 7, 0.96) 82%),
+    /* Microtextura fina de superficie de madera noble/cuero de escritorio */
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.008) 0px, rgba(255, 255, 255, 0.008) 1px, transparent 1px, transparent 3px),
+    /* Viñeta periférica envolvente */
+    radial-gradient(circle at 50% 50%, transparent 45%, rgba(0, 0, 0, 0.85) 100%),
+    /* Tono base de profundidad */
+    linear-gradient(to bottom, #090706 0%, #15100c 50%, #070504 100%);
   background-attachment: fixed;
 }
 
-/* 2. Castillo-Estación Valcora (Obsidiana y Nebulosa Cósmica) */
+/* 2. Castillo-Estación Valcora (Obsidiana estelar y nebulosa cósmica profunda) */
 body.ambient-valcora {
-  background-color: #03040a;
+  background-color: #030408;
   background-image: 
-    /* Nebulosa estelar violeta y cian */
-    radial-gradient(circle at 20% 30%, rgba(106, 27, 154, 0.22) 0%, transparent 50%),
-    radial-gradient(circle at 80% 65%, rgba(0, 229, 255, 0.15) 0%, transparent 45%),
-    radial-gradient(ellipse at 50% 50%, rgba(21, 101, 192, 0.15) 0%, rgba(3, 4, 10, 0.95) 75%),
-    /* Suelo de obsidiana con sutiles losas espaciales */
-    linear-gradient(to bottom, #04060d, #090e1f 50%, #020306);
+    /* Nebulosa cósmica etérea y suave */
+    radial-gradient(ellipse 70% 55% at 50% 45%, rgba(26, 48, 102, 0.22) 0%, rgba(56, 18, 85, 0.10) 42%, rgba(3, 4, 8, 0.95) 78%),
+    /* Resplandores distantes sutiles */
+    radial-gradient(circle at 15% 25%, rgba(0, 229, 255, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(139, 92, 246, 0.04) 0%, transparent 45%),
+    /* Viñeta de espacio profundo */
+    radial-gradient(circle at 50% 50%, transparent 45%, rgba(0, 0, 0, 0.88) 100%),
+    /* Base obsidian */
+    linear-gradient(to bottom, #020306 0%, #070b16 50%, #010204 100%);
   background-attachment: fixed;
 }
 
-/* 3. Relicario de Mármol Arcano (Mármol oscuro con vetas doradas) */
+/* 3. Relicario de Mármol Arcano (Pizarra y grafito con halo dorado) */
 body.ambient-marble {
-  background-color: #08090c;
+  background-color: #07080a;
   background-image: 
-    radial-gradient(circle at 50% 45%, rgba(212, 175, 55, 0.14) 0%, rgba(8, 9, 12, 0.95) 70%),
-    linear-gradient(135deg, rgba(212, 175, 55, 0.04) 25%, transparent 25%),
-    linear-gradient(225deg, rgba(212, 175, 55, 0.04) 25%, transparent 25%),
-    linear-gradient(to bottom, #090b10, #111522 55%, #050608);
+    /* Halo dorado champán suave */
+    radial-gradient(ellipse 70% 55% at 50% 45%, rgba(212, 175, 55, 0.11) 0%, rgba(15, 19, 27, 0.85) 60%, #050608 95%),
+    /* Viñeta oscura arquitectónica */
+    radial-gradient(circle at 50% 50%, transparent 45%, rgba(0, 0, 0, 0.82) 100%),
+    /* Base grafito */
+    linear-gradient(to bottom, #060709 0%, #0d1118 50%, #040507 100%);
   background-attachment: fixed;
 }
 
@@ -79,7 +78,7 @@ body.ambient-marble {
   height: 100vh;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.75;
+  opacity: 0.65;
 }
 
 /* Tema Noche Estelar / Dark Sci-Fi */
@@ -134,6 +133,22 @@ body.theme-clean {
   --gold-glow: rgba(2, 132, 199, 0.25);
 }
 
+/* Scrollbar Estético y Discreto */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.25);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.25);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.5);
+}
+
 /* Reset y Bases */
 * {
   box-sizing: border-box;
@@ -142,29 +157,28 @@ body.theme-clean {
 }
 
 body {
-  font-family: 'Cinzel', 'Merriweather', 'Georgia', serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background: var(--bg-desktop);
-  background-image: 
-    radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 60%),
-    radial-gradient(circle at 80% 80%, rgba(0, 229, 255, 0.03) 0%, transparent 50%),
-    linear-gradient(to bottom, #070910, #0a0e1c);
   color: var(--paper-text);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
   transition: background 0.4s ease, color 0.4s ease;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ==========================================================================
-   BARRA SUPERIOR: PESTAÑAS DE CUENTOS & NAVEGACIÓN
-   ========================================================================== */
+   BARRA SUPERIOR: PESTAÑAS DE CUENTOS & MARCA
+   ========================================================================= */
 
 .app-topbar {
-  background: rgba(10, 14, 26, 0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-  padding: 8px 24px;
+  background: rgba(10, 13, 20, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  padding: 10px 28px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -178,23 +192,41 @@ body {
 .brand-section {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
-.brand-icon {
-  font-size: 24px;
-  filter: drop-shadow(0 0 8px var(--gold-primary));
+.brand-crest {
+  width: 9px;
+  height: 9px;
+  background: var(--gold-primary);
+  transform: rotate(45deg);
+  box-shadow: 0 0 12px var(--gold-glow);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
+}
+
+.brand-text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
 
 .brand-title {
-  font-size: 18px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 21px;
   letter-spacing: 2px;
-  color: #f1f5f9;
-  font-weight: 700;
+  color: #f8fafc;
+  font-weight: 600;
   text-transform: uppercase;
-  background: linear-gradient(135deg, #fff, #d4af37);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+}
+
+.brand-subtitle {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  font-weight: 500;
 }
 
 .story-tabs-wrapper {
@@ -212,56 +244,60 @@ body {
 }
 
 .story-tab-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: #cbd5e1;
-  padding: 7px 16px;
-  border-radius: 20px;
+  padding: 6px 16px;
+  border-radius: 999px;
   font-family: inherit;
-  font-size: 13px;
+  font-size: 12.5px;
+  font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
   white-space: nowrap;
-  transition: all 0.25s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .story-tab-btn:hover {
-  background: rgba(212, 175, 55, 0.15);
-  border-color: var(--gold-primary);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(212, 175, 55, 0.4);
   color: #ffffff;
   transform: translateY(-1px);
 }
 
 .story-tab-btn.active {
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1));
+  background: rgba(212, 175, 55, 0.16);
   border-color: var(--gold-primary);
   color: #fff;
-  font-weight: bold;
-  box-shadow: 0 0 12px var(--gold-glow);
+  font-weight: 600;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.22);
 }
 
 .story-tab-btn.add-story-btn {
   border-style: dashed;
-  border-color: #64748b;
+  border-color: rgba(255, 255, 255, 0.2);
   color: #94a3b8;
 }
 
 .story-tab-btn.add-story-btn:hover {
-  border-color: #00e5ff;
-  color: #00e5ff;
-  background: rgba(0, 229, 255, 0.1);
+  border-color: var(--gold-primary);
+  color: var(--gold-primary);
+  background: rgba(212, 175, 55, 0.08);
 }
 
 /* ==========================================================================
-   BARRA SECUNDARIA: SECCIONES (LIBRO, GALERÍA, PERSONAJES) & AJUSTES
+   BARRA SECUNDARIA: SECCIONES Y CONTROLES DE LECTURA
    ========================================================================== */
 
 .sub-nav {
-  background: rgba(14, 18, 32, 0.85);
+  background: rgba(12, 15, 24, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 6px 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  padding: 6px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -271,49 +307,56 @@ body {
 
 .nav-views-group {
   display: flex;
-  gap: 6px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 3px;
+  gap: 2px;
 }
 
 .nav-tab-btn {
   background: transparent;
   border: none;
   color: #94a3b8;
-  padding: 8px 16px;
+  padding: 6px 14px;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 7px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  transition: all 0.2s ease;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-tab-btn:hover {
   color: #f1f5f9;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .nav-tab-btn.active {
-  color: var(--gold-primary);
+  color: #ffffff;
   font-weight: 600;
-  background: rgba(212, 175, 55, 0.1);
-  border-bottom: 2px solid var(--gold-primary);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 .reading-controls {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .control-group {
   display: flex;
   align-items: center;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 9px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 2px 4px;
+  padding: 3px 5px;
+  gap: 3px;
 }
 
 .ctrl-btn {
@@ -321,24 +364,96 @@ body {
   border: none;
   color: #cbd5e1;
   font-family: inherit;
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 500;
   padding: 4px 10px;
   cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.2s;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
 }
 
 .ctrl-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   color: #fff;
+}
+
+/* Indicadores de tema de papel */
+.theme-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+  flex-shrink: 0;
+}
+
+.theme-dot.parchment {
+  background: #f4edd9;
+  border: 1px solid #d4af37;
+}
+
+.theme-dot.night {
+  background: #0f1523;
+  border: 1px solid #00e5ff;
+}
+
+.theme-dot.sepia {
+  background: #d4bf9d;
+  border: 1px solid #8b5a2b;
+}
+
+.theme-dot.clean {
+  background: #ffffff;
+  border: 1px solid #94a3b8;
 }
 
 .theme-btn.active,
 .ambient-btn.active {
-  color: var(--gold-primary);
-  font-weight: bold;
-  background: rgba(212, 175, 55, 0.2);
-  border-radius: 4px;
+  color: #f8fafc;
+  font-weight: 600;
+  background: rgba(212, 175, 55, 0.22);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.sound-btn {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+  padding: 5px 12px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.sound-indicator-led {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 6px;
+  background: var(--gold-primary);
+  box-shadow: 0 0 8px var(--gold-primary);
+  transition: all 0.25s ease;
+  vertical-align: middle;
+}
+
+.sound-btn:not(.active) .sound-indicator-led {
+  background: #64748b;
+  box-shadow: none;
+}
+
+.sound-btn.active {
+  color: #f8fafc;
+  border-color: rgba(212, 175, 55, 0.4);
+  background: rgba(212, 175, 55, 0.12);
 }
 
 /* Elementos del Drawer de Ajustes (Ocultos en Desktop) */
@@ -389,10 +504,35 @@ body {
    ========================================================================== */
 
 .book-workspace {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+
+/* Halo sutil de lectura y ambientación detrás del libro */
+.book-workspace::before {
+  content: "";
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(1300px, 98vw);
+  height: 88%;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(215, 162, 85, 0.09) 0%, rgba(130, 80, 35, 0.03) 45%, transparent 75%);
+  border-radius: 40px;
+  pointer-events: none;
+  z-index: 0;
+  transition: background 0.4s ease;
+}
+
+body.ambient-valcora .book-workspace::before {
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(56, 120, 240, 0.12) 0%, rgba(40, 20, 80, 0.04) 45%, transparent 75%);
+}
+
+body.ambient-marble .book-workspace::before {
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(212, 175, 55, 0.08) 0%, rgba(20, 25, 35, 0.04) 45%, transparent 75%);
 }
 
 .book-wrapper {
@@ -402,43 +542,50 @@ body {
   min-height: 720px;
   margin: 15px auto;
   perspective: 2500px;
-  /* Reflejo y sombra tridimensional sobre la mesa */
-  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.85)) drop-shadow(0 45px 80px rgba(0, 0, 0, 0.65));
+  /* Sombra multicapa hiper-realista con oclusión de contacto */
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.65)) 
+          drop-shadow(0 22px 35px rgba(0, 0, 0, 0.75)) 
+          drop-shadow(0 45px 85px rgba(0, 0, 0, 0.6));
+  z-index: 1;
 }
 
-/* Encuadernación / Tapa de cuero exterior */
+/* Encuadernación / Tapa de cuero exterior artesanal */
 .book-spine-binding {
   position: relative;
   width: 100%;
   min-height: 700px;
-  background: var(--book-cover-outer);
-  border: 12px solid #231c17;
-  border-radius: 12px;
+  background: linear-gradient(135deg, #221a14 0%, #15110d 50%, #251e18 100%);
+  border: 12px solid #1a1410;
+  border-radius: 16px;
   box-shadow: 
-    0 30px 85px rgba(0, 0, 0, 0.85),
-    0 0 0 2px var(--book-cover-border),
-    0 0 30px var(--gold-glow),
-    inset 0 0 50px rgba(0, 0, 0, 0.92);
+    0 30px 85px rgba(0, 0, 0, 0.9),
+    inset 0 0 0 2px rgba(212, 175, 55, 0.45),
+    inset 0 0 0 5px #120e0a,
+    inset 0 0 0 7px rgba(212, 175, 55, 0.25),
+    inset 0 0 50px rgba(0, 0, 0, 0.95);
   display: flex;
   overflow: hidden;
-  padding: 10px;
+  padding: 12px;
   transition: transform 0.3s ease, box-shadow 0.4s ease;
 }
 
-/* Esquinas decorativas de orfebrería */
+/* Esquinas decorativas de orfebrería en relieve dorado */
 .book-spine-binding::before,
 .book-spine-binding::after {
   content: "❖";
   position: absolute;
-  font-size: 20px;
+  font-size: 24px;
   color: var(--gold-primary);
-  opacity: 0.6;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.6), 1px 1px 2px #000;
+  opacity: 0.85;
+  z-index: 5;
+  pointer-events: none;
 }
 
 .book-spine-binding::before { top: 6px; left: 8px; }
 .book-spine-binding::after { bottom: 6px; right: 8px; }
 
-/* El Pliegue y Páginas Abiertas */
+/* El Pliegue y Páginas Abiertas con Cantos de Hojas Reales */
 .book-pages-container {
   display: flex;
   width: 100%;
@@ -446,8 +593,15 @@ body {
   min-height: 680px;
   position: relative;
   background: var(--paper-bg);
-  border-radius: 4px;
-  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  box-shadow: 
+    -3px 0 0 -1px rgba(212, 175, 55, 0.3),
+    -6px 0 0 -2px rgba(190, 175, 145, 0.7),
+    -9px 0 0 -3px rgba(160, 145, 115, 0.6),
+    3px 0 0 -1px rgba(212, 175, 55, 0.3),
+    6px 0 0 -2px rgba(190, 175, 145, 0.7),
+    9px 0 0 -3px rgba(160, 145, 115, 0.6),
+    inset 0 0 40px rgba(0, 0, 0, 0.06);
   perspective: 2600px;
   transform-style: preserve-3d;
 }
@@ -498,7 +652,7 @@ body {
   width: 100%;
   height: 100%;
   background: var(--paper-bg);
-  padding: 40px 45px 35px;
+  padding: 42px 48px 38px;
   box-sizing: border-box;
   overflow-y: hidden;
   backface-visibility: hidden;
@@ -601,75 +755,98 @@ body {
   100% { transform: perspective(1000px) rotateY(0deg) translateX(0) scale(1); opacity: 1; }
 }
 
-/* Lomo central y sombra de profundidad */
+/* Lomo central, sombras de profundidad y cabezadas de seda */
 .book-center-crease {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 50%;
-  width: 50px;
+  width: 58px;
   transform: translateX(-50%);
   background: linear-gradient(to right, 
-    rgba(0, 0, 0, 0.22) 0%, 
-    rgba(0, 0, 0, 0.03) 40%, 
-    rgba(0, 0, 0, 0.28) 50%, 
-    rgba(0, 0, 0, 0.03) 60%, 
-    rgba(0, 0, 0, 0.22) 100%);
+    rgba(0, 0, 0, 0.32) 0%, 
+    rgba(0, 0, 0, 0.12) 20%, 
+    rgba(0, 0, 0, 0.02) 42%, 
+    rgba(0, 0, 0, 0.42) 50%, 
+    rgba(0, 0, 0, 0.02) 58%, 
+    rgba(0, 0, 0, 0.12) 80%, 
+    rgba(0, 0, 0, 0.32) 100%);
   pointer-events: none;
   z-index: 10;
 }
 
-/* Cinta marcapáginas carmesí */
+/* Cabezadas de seda en los extremos del lomo */
+.book-center-crease::before,
+.book-center-crease::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, #b91c1c 0px, #b91c1c 3px, #d4af37 3px, #d4af37 6px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  z-index: 15;
+  border-radius: 2px;
+}
+
+.book-center-crease::before { top: 0; }
+.book-center-crease::after { bottom: 0; }
+
+/* Cinta marcapáginas carmesí de seda damascada */
 .book-bookmark-ribbon {
   position: absolute;
-  top: -8px;
+  top: -10px;
   left: 50%;
   width: 26px;
-  height: 180px;
-  background: var(--ribbon-red);
+  height: 185px;
+  background: linear-gradient(90deg, #7f1d1d 0%, #b91c1c 20%, #ef4444 48%, #dc2626 65%, #991b1b 100%);
   transform: translateX(-50%);
-  z-index: 12;
-  box-shadow: 2px 4px 12px rgba(0,0,0,0.5);
+  z-index: 16;
+  box-shadow: 3px 6px 16px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.35);
   clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0 88%);
   cursor: pointer;
-  transition: height 0.3s ease;
+  transition: height 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .book-bookmark-ribbon:hover {
-  height: 220px;
+  height: 225px;
 }
 
-/* Páginas Izquierda y Derecha */
+/* Páginas Izquierda y Derecha con textura verjurada */
 .book-page {
   flex: 1;
-  padding: 40px 45px 35px;
+  padding: 42px 48px 38px;
   color: var(--paper-text);
   overflow-y: auto;
   position: relative;
   user-select: text;
   line-height: 1.85;
+  background-image: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.008) 0px, rgba(0, 0, 0, 0.008) 1px, transparent 1px, transparent 4px);
 }
 
 .book-page-left {
   border-right: 1px solid var(--paper-border);
-  box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.04);
+  box-shadow: inset -16px 0 25px rgba(0, 0, 0, 0.05);
 }
 
 .book-page-right {
-  box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.04);
+  box-shadow: inset 16px 0 25px rgba(0, 0, 0, 0.05);
 }
 
 /* Número de página en pie */
 .page-footer-num {
   position: absolute;
   bottom: 12px;
-  font-size: 12px;
-  color: #888;
-  letter-spacing: 1px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 13px;
+  color: var(--paper-heading);
+  opacity: 0.65;
+  letter-spacing: 2px;
 }
 
-.book-page-left .page-footer-num { left: 45px; }
-.book-page-right .page-footer-num { right: 45px; }
+.book-page-left .page-footer-num { left: 48px; }
+.book-page-right .page-footer-num { right: 48px; }
 
 /* Efecto de vuelta de página */
 .page-flip-anim {
@@ -697,11 +874,13 @@ body {
   padding-bottom: 8px;
   margin-bottom: 22px;
   border-bottom: 1px solid var(--paper-border);
-  font-family: 'Cinzel', serif;
-  font-size: 11px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 11.5px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #777;
+  letter-spacing: 2.5px;
+  color: var(--paper-heading);
+  opacity: 0.75;
+  font-weight: 600;
 }
 
 .story-mini-title {
@@ -713,6 +892,7 @@ body {
 
 .header-gem {
   color: var(--gold-primary);
+  font-size: 10px;
 }
 
 /* Encabezados de Escenas con Ornamentos */
@@ -721,7 +901,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 14px;
-  margin: 30px 0 20px;
+  margin: 32px 0 22px;
   text-align: center;
 }
 
@@ -732,8 +912,8 @@ body {
 }
 
 .scene-title {
-  font-family: 'Cinzel', serif;
-  font-size: 1.15em;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35em;
   color: var(--paper-heading);
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -742,8 +922,11 @@ body {
 
 /* Párrafos y Diálogos */
 .story-paragraph {
-  margin-bottom: 16px;
-  text-indent: 1.5em;
+  margin-bottom: 18px;
+  text-indent: 1.6em;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .story-paragraph:first-of-type {
@@ -758,19 +941,19 @@ body {
 
 /* Capitular (Drop Cap) */
 .has-dropcap::first-letter {
-  font-family: 'Cinzel', serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   float: left;
-  font-size: 3.6em;
-  line-height: 0.85;
+  font-size: 3.8em;
+  line-height: 0.82;
   padding-top: 4px;
   padding-right: 10px;
   padding-bottom: 2px;
   color: var(--paper-accent);
-  font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12);
 }
 
-/* Portada Interior */
+/* Portada Interior / Frontispicio Real */
 .book-cover-inner {
   display: flex;
   flex-direction: column;
@@ -778,30 +961,35 @@ body {
   justify-content: center;
   text-align: center;
   height: 100%;
-  padding: 30px 20px;
-  border: 2px solid var(--paper-border);
+  padding: 34px 24px;
+  border: 2px solid var(--gold-primary);
+  outline: 1px solid var(--paper-border);
+  outline-offset: -8px;
   position: relative;
+  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.04) 0%, transparent 70%);
 }
 
 .cover-badge {
-  font-family: 'Cinzel', serif;
-  font-size: 12px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 13px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--paper-accent);
-  margin-bottom: 14px;
+  margin-bottom: 16px;
+  font-weight: 600;
   border-bottom: 1px solid var(--paper-border);
   padding-bottom: 4px;
 }
 
 .cover-title {
-  font-family: 'Cinzel', serif;
-  font-size: 2em;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.3em;
   color: var(--paper-heading);
-  line-height: 1.25;
-  margin-bottom: 16px;
+  line-height: 1.18;
+  margin-bottom: 14px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
+  font-weight: 700;
 }
 
 .cover-divider {
@@ -812,10 +1000,12 @@ body {
 }
 
 .cover-author {
-  font-size: 1.1em;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.2em;
   font-style: italic;
-  color: #666;
-  margin-bottom: 24px;
+  color: var(--paper-heading);
+  opacity: 0.75;
+  margin-bottom: 20px;
 }
 
 .cover-tagline {
@@ -824,25 +1014,27 @@ body {
   color: var(--paper-accent);
   margin-bottom: 20px;
   max-width: 85%;
+  line-height: 1.5;
 }
 
 .cover-synopsis-box {
   background: var(--paper-bg-subtle);
   border: 1px solid var(--paper-border);
-  padding: 16px 20px;
-  border-radius: 6px;
-  font-size: 0.88em;
+  padding: 16px 22px;
+  border-radius: 8px;
+  font-size: 0.9em;
   line-height: 1.6;
   text-align: justify;
-  max-width: 90%;
-  margin-bottom: 24px;
+  max-width: 88%;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.03);
+  margin-bottom: 20px;
 }
 
 .cover-instructions {
-  font-size: 12px;
+  font-size: 11px;
   color: #888;
-  font-family: 'Cinzel', serif;
-  letter-spacing: 1px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .blank-end-page {
@@ -871,71 +1063,91 @@ body {
   justify-content: space-between;
   width: 100%;
   max-width: 1180px;
-  margin-top: 14px;
-  padding: 8px 12px;
-  background: rgba(14, 18, 32, 0.7);
-  border-radius: 10px;
+  margin-top: 18px;
+  padding: 10px 20px;
+  background: rgba(14, 18, 28, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 2;
 }
 
 .nav-arrow-btn {
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
-  border: 1px solid var(--gold-primary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #f1f5f9;
-  padding: 8px 18px;
-  border-radius: 8px;
-  font-family: 'Cinzel', serif;
-  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-arrow-btn:hover:not(:disabled) {
-  background: var(--gold-primary);
-  color: #000;
-  box-shadow: 0 0 14px var(--gold-glow);
+  background: rgba(212, 175, 55, 0.2);
+  border-color: var(--gold-primary);
+  color: #fff;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.3);
   transform: translateY(-1px);
 }
 
+.nav-arrow-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
 .nav-arrow-btn:disabled {
-  opacity: 0.35;
+  opacity: 0.25;
   cursor: not-allowed;
-  border-color: #555;
+  border-color: rgba(255, 255, 255, 0.06);
+  background: transparent;
+  color: #64748b;
 }
 
 .progress-center-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   flex: 1;
   max-width: 450px;
-  margin: 0 20px;
+  margin: 0 24px;
 }
 
 .book-progress-track {
   width: 100%;
   height: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
   overflow: hidden;
 }
 
 .book-progress-fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(to right, var(--gold-primary), #ffd54f);
+  background: linear-gradient(90deg, #b8860b, var(--gold-primary), #ffd54f);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
   transition: width 0.3s ease;
 }
 
 .progress-label {
-  font-size: 12px;
+  font-size: 11.5px;
   color: #94a3b8;
-  font-family: 'Cinzel', serif;
-  letter-spacing: 1px;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* ==========================================================================
@@ -948,14 +1160,13 @@ body {
 }
 
 .section-title {
-  font-size: 26px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
   color: #f8fafc;
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 8px;
-  background: linear-gradient(135deg, #ffffff, var(--gold-primary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-weight: 600;
 }
 
 .section-subtitle {
@@ -973,12 +1184,14 @@ body {
 }
 
 .gallery-card {
-  background: rgba(17, 24, 39, 0.9);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: 12px;
+  background: rgba(14, 18, 28, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
 }
@@ -1068,8 +1281,9 @@ body {
 }
 
 .card-scene-num {
-  font-family: 'Cinzel', serif;
-  font-size: 12px;
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 600;
   color: var(--gold-primary);
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -1079,16 +1293,18 @@ body {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #94a3b8;
-  padding: 3px 8px;
-  border-radius: 4px;
+  padding: 4px 10px;
+  border-radius: 6px;
   font-size: 11px;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .replace-img-btn:hover {
-  border-color: #00e5ff;
-  color: #00e5ff;
+  border-color: var(--gold-primary);
+  color: #fff;
+  background: rgba(212, 175, 55, 0.1);
 }
 
 .card-title {
@@ -1122,23 +1338,28 @@ body {
 .characters-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 22px;
+  gap: 24px;
   width: 100%;
 }
 
 .character-card {
-  background: rgba(17, 24, 39, 0.85);
-  border: 1px solid rgba(212, 175, 55, 0.15);
-  border-radius: 10px;
-  padding: 22px;
+  background: rgba(14, 18, 28, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  transition: border-color 0.25s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .character-card:hover {
-  border-color: var(--gold-primary);
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65), 0 0 18px rgba(212, 175, 55, 0.12);
 }
 
 .char-header {
@@ -1147,28 +1368,35 @@ body {
   gap: 14px;
 }
 
+.char-monogram,
 .char-icon {
-  font-size: 32px;
-  width: 52px;
-  height: 52px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--gold-primary);
-  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  width: 46px;
+  height: 46px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--gold-primary);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: 1px;
 }
 
 .char-name {
-  font-size: 18px;
+  font-size: 17px;
+  font-weight: 600;
   color: #f8fafc;
-  font-family: 'Cinzel', serif;
+  font-family: inherit;
 }
 
 .char-role {
   font-size: 12px;
   color: var(--gold-primary);
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
 }
 
 .char-desc {
@@ -1231,9 +1459,11 @@ body {
 }
 
 .modal-title {
-  font-size: 20px;
+  font-size: 21px;
   color: var(--gold-primary);
-  font-family: 'Cinzel', serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .close-btn {
@@ -1288,14 +1518,15 @@ body {
 }
 
 .lightbox-index-badge {
-  font-family: 'Cinzel', serif;
+  font-family: inherit;
   font-size: 12px;
+  font-weight: 600;
   color: var(--gold-primary);
   background: rgba(212, 175, 55, 0.12);
   border: 1px solid var(--gold-primary);
   padding: 3px 10px;
   border-radius: 12px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .lightbox-nav-arrow {
@@ -1340,16 +1571,16 @@ body {
   justify-content: center;
   gap: 8px;
   margin: 18px 0;
-  padding: 8px 14px;
+  padding: 8px 16px;
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
   border: 1px solid var(--gold-primary);
   border-radius: 20px;
   cursor: pointer;
-  font-family: 'Cinzel', serif;
-  font-size: 11.5px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
   color: var(--paper-heading);
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  letter-spacing: 0.3px;
   transition: all 0.25s ease;
   user-select: none;
 }
@@ -1431,7 +1662,8 @@ body {
   font-size: 13px;
   color: #cbd5e1;
   margin-bottom: 6px;
-  font-family: 'Cinzel', serif;
+  font-family: inherit;
+  font-weight: 500;
 }
 
 .form-control {
@@ -1472,13 +1704,13 @@ body {
   background: linear-gradient(135deg, var(--gold-primary), #b78103);
   border: none;
   color: #000;
-  font-weight: bold;
+  font-weight: 600;
   padding: 12px 24px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  font-family: 'Cinzel', serif;
+  font-family: inherit;
   font-size: 14px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   width: 100%;
   transition: all 0.2s;
 }
@@ -1504,13 +1736,9 @@ body {
     gap: 6px;
   }
 
-  .brand-icon {
-    font-size: 18px;
-  }
-
   .brand-title {
-    font-size: 13px;
-    letter-spacing: 0.5px;
+    font-size: 14px;
+    letter-spacing: 1px;
   }
 
   .story-tabs-wrapper {
@@ -1558,10 +1786,10 @@ body {
   .nav-tab-btn {
     padding: 5px 2px;
     font-size: 11px;
+    font-weight: 500;
     justify-content: center;
     text-align: center;
     border-radius: 5px;
-    gap: 3px;
     border-bottom: none !important;
   }
 
@@ -1569,12 +1797,8 @@ body {
     background: rgba(212, 175, 55, 0.2);
   }
 
-  .nav-icon {
-    font-size: 13px;
-  }
-
   .nav-btn-text {
-    font-size: 10px;
+    font-size: 10.5px;
   }
 
   /* Mostrar botón de ajustes en móvil */
@@ -1619,8 +1843,9 @@ body {
     justify-content: space-between;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 8px;
-    font-family: 'Cinzel', serif;
-    font-size: 13px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
     color: var(--gold-primary);
   }
 
@@ -1686,19 +1911,20 @@ body {
     min-height: 400px;
     max-height: 750px;
     border-width: 4px;
-    border-radius: 8px;
-    padding: 3px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 0 1.5px var(--book-cover-border);
+    border-radius: 10px;
+    padding: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85), inset 0 0 0 1px rgba(212, 175, 55, 0.45), inset 0 0 20px rgba(0, 0, 0, 0.9);
   }
 
-  .book-spine-binding::before { top: 3px; left: 4px; font-size: 12px; }
-  .book-spine-binding::after { bottom: 3px; right: 4px; font-size: 12px; }
+  .book-spine-binding::before { top: 3px; left: 4px; font-size: 14px; }
+  .book-spine-binding::after { bottom: 3px; right: 4px; font-size: 14px; }
 
   .book-pages-container {
     width: 100%;
     height: 100%;
     min-height: unset;
     border-radius: 4px;
+    box-shadow: -2px 0 0 -1px rgba(212, 175, 55, 0.25), 2px 0 0 -1px rgba(212, 175, 55, 0.25), inset 0 0 25px rgba(0, 0, 0, 0.05);
   }
 
   /* Ocultar página derecha y pliegue central */
@@ -1713,10 +1939,11 @@ body {
     height: 100%;
     border-right: none;
     box-shadow: none;
-    padding: 16px 14px 28px;
+    padding: 18px 16px 28px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
+    background-image: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.008) 0px, rgba(0, 0, 0, 0.008) 1px, transparent 1px, transparent 4px);
   }
 
   /* Cinta marcapáginas a la DERECHA para NO tapar el texto ni la capitular */
@@ -1979,10 +2206,6 @@ body {
     gap: 4px;
   }
 
-  .brand-icon {
-    font-size: 15px;
-  }
-
   .brand-title {
     font-size: 12px;
   }
@@ -2037,15 +2260,11 @@ body {
 /* Teléfonos extremadamente pequeños (< 360px) */
 @media (max-width: 360px) {
   .brand-title {
-    font-size: 11.5px;
+    font-size: 11px;
   }
 
   .nav-btn-text {
-    display: none;
-  }
-
-  .nav-icon {
-    font-size: 16px;
+    font-size: 9px;
   }
 
   .btn-arrow-text {

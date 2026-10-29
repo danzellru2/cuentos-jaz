@@ -116,83 +116,108 @@ class StoryBookApp {
     }
   }
 
-  // Partículas y atmósfera viva de fondo
+  // Partículas y atmósfera viva de fondo con respuesta al ambiente activo
   setupAmbientParticles() {
     const canvas = document.getElementById("ambientDustCanvas");
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    const dpr = window.devicePixelRatio || 1;
+    let width = (canvas.width = window.innerWidth * dpr);
+    let height = (canvas.height = window.innerHeight * dpr);
+    ctx.scale(dpr, dpr);
 
-    window.addEventListener("resize", () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
+    const onResize = () => {
+      width = canvas.width = window.innerWidth * dpr;
+      height = canvas.height = window.innerHeight * dpr;
+      ctx.scale(dpr, dpr);
+    };
+    window.addEventListener("resize", onResize);
 
-    let mouseX = width / 2;
-    let mouseY = height / 2;
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
     window.addEventListener("mousemove", (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
     });
 
-    // Crear partículas cósmicas / motas de polvo iluminadas
-    const particleCount = 70;
+    // 50 partículas divididas en capa profunda (estrellas/polvo lejano) y capa de lectura frontal
+    const particleCount = 50;
     const particles = [];
 
     for (let i = 0; i < particleCount; i++) {
+      const isForeground = i < 18;
       particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        size: Math.random() * 2.2 + 0.6,
-        speedY: -(Math.random() * 0.35 + 0.12),
-        speedX: (Math.random() - 0.5) * 0.2,
-        opacity: Math.random() * 0.6 + 0.25,
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        size: isForeground ? (Math.random() * 1.5 + 1.0) : (Math.random() * 0.7 + 0.4),
+        speedY: isForeground ? -(Math.random() * 0.2 + 0.08) : -(Math.random() * 0.08 + 0.02),
+        speedX: (Math.random() - 0.5) * (isForeground ? 0.16 : 0.06),
+        opacity: isForeground ? (Math.random() * 0.4 + 0.2) : (Math.random() * 0.25 + 0.1),
         pulseSpeed: Math.random() * 0.025 + 0.01,
         pulseVal: Math.random() * Math.PI,
-        isGold: Math.random() > 0.3
+        isForeground
       });
     }
 
     const animate = () => {
-      ctx.clearRect(0, 0, width, height);
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      ctx.clearRect(0, 0, w, h);
+
+      const theme = this.ambientTheme || "mahogany";
 
       particles.forEach((p) => {
         p.pulseVal += p.pulseSpeed;
         const currentAlpha = p.opacity * (0.65 + 0.35 * Math.sin(p.pulseVal));
 
-        // Reacción leve al movimiento del ratón
-        const dx = mouseX - p.x;
-        const dy = mouseY - p.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 130) {
-          p.x -= (dx / dist) * 0.45;
-          p.y -= (dy / dist) * 0.45;
+        // Reacción leve y orgánica al ratón en partículas de primer plano
+        if (p.isForeground) {
+          const dx = mouseX - p.x;
+          const dy = mouseY - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            p.x -= (dx / dist) * 0.3;
+            p.y -= (dy / dist) * 0.3;
+          }
         }
 
         p.x += p.speedX;
         p.y += p.speedY;
 
-        // Reposicionar al salir de pantalla
+        // Reposicionar suavemente al salir de pantalla
         if (p.y < -10) {
-          p.y = height + 10;
-          p.x = Math.random() * width;
+          p.y = h + 10;
+          p.x = Math.random() * w;
         }
-        if (p.x < -10) p.x = width + 10;
-        if (p.x > width + 10) p.x = -10;
+        if (p.x < -10) p.x = w + 10;
+        if (p.x > w + 10) p.x = -10;
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        if (p.isGold) {
-          ctx.fillStyle = `rgba(255, 215, 0, ${currentAlpha})`;
-          ctx.shadowColor = "rgba(255, 215, 0, 0.45)";
+
+        // Paleta según el ambiente de lectura activo
+        if (theme === "valcora") {
+          // Estrellas y motas cósmicas frías y misteriosas
+          if (p.isForeground) {
+            ctx.fillStyle = `rgba(186, 230, 253, ${currentAlpha * 0.8})`;
+            ctx.shadowColor = "rgba(56, 189, 248, 0.4)";
+          } else {
+            ctx.fillStyle = `rgba(224, 231, 255, ${currentAlpha * 0.6})`;
+            ctx.shadowColor = "rgba(167, 139, 250, 0.25)";
+          }
+        } else if (theme === "marble") {
+          // Destellos sutiles de relicario
+          ctx.fillStyle = `rgba(235, 215, 170, ${currentAlpha * 0.65})`;
+          ctx.shadowColor = "rgba(212, 175, 55, 0.3)";
         } else {
-          ctx.fillStyle = `rgba(0, 229, 255, ${currentAlpha * 0.75})`;
-          ctx.shadowColor = "rgba(0, 229, 255, 0.35)";
+          // Estudio de caoba: motas de polvo en foco cálido de lectura
+          ctx.fillStyle = `rgba(238, 195, 120, ${currentAlpha * 0.75})`;
+          ctx.shadowColor = "rgba(212, 175, 55, 0.35)";
         }
-        ctx.shadowBlur = p.size * 2.5;
+
+        ctx.shadowBlur = p.size * 2;
         ctx.fill();
       });
 
@@ -339,7 +364,6 @@ class StoryBookApp {
       const tab = document.createElement("button");
       tab.className = `story-tab-btn ${story.id === this.currentStoryId ? "active" : ""}`;
       tab.innerHTML = `
-        <span class="tab-icon">📖</span>
         <span class="tab-title">${this.escapeHtml(story.title)}</span>
       `;
       tab.addEventListener("click", () => {
@@ -353,7 +377,7 @@ class StoryBookApp {
     // Botón para agregar nuevo cuento
     const addBtn = document.createElement("button");
     addBtn.className = "story-tab-btn add-story-btn";
-    addBtn.innerHTML = `<span>➕</span><span>Nuevo Cuento</span>`;
+    addBtn.innerHTML = `<span>+ Nuevo Cuento</span>`;
     addBtn.title = "Cargar o redactar un nuevo cuento";
     addBtn.addEventListener("click", () => this.openNewStoryModal());
     tabsContainer.appendChild(addBtn);
@@ -465,7 +489,7 @@ class StoryBookApp {
             <p>${this.escapeHtml(pageData.synopsis || "")}</p>
           </div>
           <div class="cover-instructions">
-            <span>Usa las flechas ◀ ▶ o haz clic para pasar las páginas</span>
+            <span>Navega con las flechas o desliza la pantalla para pasar de página</span>
           </div>
           <div class="cover-filigree bottom"></div>
         </div>
@@ -535,7 +559,7 @@ class StoryBookApp {
       if (trigger) {
         html += `
           <div class="page-illustration-pill" onclick="app.openLightboxById('${trigger.id}')" title="Ver ilustración a pantalla completa">
-            <span>🖼️ Ver Ilustración: ${trigger.label}</span>
+            <span>Ver Ilustración: ${trigger.label}</span>
           </div>
         `;
       }
@@ -844,7 +868,7 @@ class StoryBookApp {
         <div class="card-image-box" onclick="app.openLightbox(${index})">
           ${artContent}
           <div class="card-overlay">
-            <span class="zoom-pill">🔍 Ver en pantalla completa</span>
+            <span class="zoom-pill">Pantalla completa</span>
           </div>
           <span class="scene-badge">${this.escapeHtml(item.badge || item.scene)}</span>
         </div>
@@ -852,7 +876,7 @@ class StoryBookApp {
           <div class="card-meta">
             <span class="card-scene-num">${this.escapeHtml(item.scene)}</span>
             <button class="replace-img-btn" title="Personalizar / Subir tu propia imagen para esta escena" onclick="app.promptCustomImage(${index})">
-              📷 Cambiar Imagen
+              Cambiar Imagen
             </button>
           </div>
           <h3 class="card-title">${this.escapeHtml(item.title)}</h3>
@@ -969,9 +993,17 @@ class StoryBookApp {
     chars.forEach(char => {
       const card = document.createElement("div");
       card.className = "character-card";
+      const initials = (char.name || "P")
+        .split(" ")
+        .filter(w => w.length > 0)
+        .map(w => w[0])
+        .join("")
+        .slice(0, 2)
+        .toUpperCase();
+
       card.innerHTML = `
         <div class="char-header">
-          <div class="char-icon">${char.icon || "📜"}</div>
+          <div class="char-monogram">${initials}</div>
           <div>
             <h3 class="char-name">${this.escapeHtml(char.name)}</h3>
             <span class="char-role">${this.escapeHtml(char.role)}</span>
@@ -1164,7 +1196,7 @@ class StoryBookApp {
   updateSoundBtn() {
     const btn = document.getElementById("soundToggleBtn");
     if (btn) {
-      btn.innerText = this.soundEnabled ? "🔊 Sonido Activado" : "🔇 Sonido Silenciado";
+      btn.innerHTML = `<span class="sound-indicator-led"></span><span class="sound-label">Sonido: ${this.soundEnabled ? "Activado" : "Silenciado"}</span>`;
       btn.classList.toggle("active", this.soundEnabled);
     }
   }

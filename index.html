@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>El Relicario de Cuentos | Libro Digital Interactivo</title>
   
-  <!-- Tipografías literarias Google Fonts -->
+  <!-- Tipografías elegantes Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -22,9 +22,10 @@
        ========================================================================= -->
   <header class="app-topbar">
     <div class="brand-section">
-      <span class="brand-icon">👑</span>
-      <div>
+      <span class="brand-crest"></span>
+      <div class="brand-text-box">
         <h1 class="brand-title">Relicario de Cuentos</h1>
+        <span class="brand-subtitle">Biblioteca Digital Ilustrada</span>
       </div>
     </div>
 
@@ -42,53 +43,66 @@
   <nav class="sub-nav">
     <div class="nav-views-group">
       <button class="nav-tab-btn active" data-tab="book-view" title="Modo Lectura">
-        <span class="nav-icon">📖</span><span class="nav-btn-text">Lectura</span>
+        <span class="nav-btn-text">Lectura</span>
       </button>
       <button class="nav-tab-btn" data-tab="gallery-view" title="Galería Ilustrada">
-        <span class="nav-icon">🎨</span><span class="nav-btn-text">Galería</span>
+        <span class="nav-btn-text">Galería</span>
       </button>
       <button class="nav-tab-btn" data-tab="characters-view" title="Dossier de Personajes">
-        <span class="nav-icon">👥</span><span class="nav-btn-text">Dossier</span>
+        <span class="nav-btn-text">Dossier</span>
       </button>
       <button id="tocBtn" class="nav-tab-btn" title="Índice de Escenas">
-        <span class="nav-icon">📑</span><span class="nav-btn-text">Índice</span>
+        <span class="nav-btn-text">Índice</span>
       </button>
       <button id="readingSettingsBtn" class="nav-tab-btn settings-btn" title="Ajustes de Lectura">
-        <span class="nav-icon">⚙️</span><span class="nav-btn-text">Ajustes</span>
+        <span class="nav-btn-text">Ajustes</span>
       </button>
     </div>
 
     <!-- Controles de experiencia de lectura (En desktop inline, en móvil drawer emergente) -->
     <div id="readingControls" class="reading-controls">
       <div class="controls-drawer-header">
-        <span>⚙️ Ajustes de Lectura</span>
+        <span>Ajustes de Lectura</span>
         <button id="closeSettingsBtn" class="close-settings-btn" aria-label="Cerrar ajustes">✕</button>
       </div>
 
       <!-- Selector de tamaño de fuente -->
-      <div class="control-group" title="Tamaño de texto">
+      <div class="control-group font-size-group" title="Tamaño de texto">
         <button id="fontDecBtn" class="ctrl-btn" title="Disminuir letra">A-</button>
         <button id="fontIncBtn" class="ctrl-btn" title="Aumentar letra">A+</button>
       </div>
 
       <!-- Selector de tema de papel -->
-      <div class="control-group" title="Aspecto del papel">
-        <button class="ctrl-btn theme-btn active" data-theme="parchment" title="Pergamino Imperial">📜</button>
-        <button class="ctrl-btn theme-btn" data-theme="night" title="Noche Estelar">🌌</button>
-        <button class="ctrl-btn theme-btn" data-theme="sepia" title="Sepia Antiguo">🍂</button>
-        <button class="ctrl-btn theme-btn" data-theme="clean" title="Papel Blanco">📄</button>
+      <div class="control-group theme-selector-group" title="Aspecto del papel">
+        <button class="ctrl-btn theme-btn active" data-theme="parchment" title="Pergamino Imperial">
+          <span class="theme-dot parchment"></span>
+          <span>Pergamino</span>
+        </button>
+        <button class="ctrl-btn theme-btn" data-theme="night" title="Noche Estelar">
+          <span class="theme-dot night"></span>
+          <span>Noche</span>
+        </button>
+        <button class="ctrl-btn theme-btn" data-theme="sepia" title="Sepia Antiguo">
+          <span class="theme-dot sepia"></span>
+          <span>Sepia</span>
+        </button>
+        <button class="ctrl-btn theme-btn" data-theme="clean" title="Papel Blanco">
+          <span class="theme-dot clean"></span>
+          <span>Blanco</span>
+        </button>
       </div>
 
       <!-- Selector de ambiente de fondo / mesa de lectura -->
-      <div class="control-group" title="Ambiente de Fondo / Mesa de Lectura">
-        <button class="ctrl-btn ambient-btn active" data-ambient="mahogany" title="Estudio de Caoba Imperial (Madera Noble)">🪵</button>
-        <button class="ctrl-btn ambient-btn" data-ambient="valcora" title="Castillo Valcora (Nebulosa y Obsidiana)">🪐</button>
-        <button class="ctrl-btn ambient-btn" data-ambient="marble" title="Relicario de Mármol Arcano">🏛️</button>
+      <div class="control-group ambient-selector-group" title="Ambiente de Fondo / Mesa de Lectura">
+        <button class="ctrl-btn ambient-btn active" data-ambient="mahogany" title="Estudio de Caoba Imperial">Estudio</button>
+        <button class="ctrl-btn ambient-btn" data-ambient="valcora" title="Castillo Valcora">Valcora</button>
+        <button class="ctrl-btn ambient-btn" data-ambient="marble" title="Relicario de Mármol">Mármol</button>
       </div>
 
       <!-- Sonido de pasar hoja -->
-      <button id="soundToggleBtn" class="ctrl-btn active" title="Activar/Desactivar sonido de hojas">
-        🔊 Sonido Activado
+      <button id="soundToggleBtn" class="ctrl-btn sound-btn active" title="Activar/Desactivar sonido de hojas">
+        <span class="sound-indicator-led"></span>
+        <span class="sound-label">Sonido: Activado</span>
       </button>
     </div>
 
@@ -132,7 +146,7 @@
         <!-- Barra inferior de navegación rápida y progreso de lectura -->
         <div class="book-bottom-bar">
           <button id="prevPageBtn" class="nav-arrow-btn" aria-label="Página anterior">
-            <span>◀</span><span class="btn-arrow-text">Anterior</span>
+            <span class="arrow-symbol">←</span><span class="btn-arrow-text">Anterior</span>
           </button>
 
           <div class="progress-center-box">
@@ -143,7 +157,7 @@
           </div>
 
           <button id="nextPageBtn" class="nav-arrow-btn" aria-label="Página siguiente">
-            <span class="btn-arrow-text">Siguiente</span><span>▶</span>
+            <span class="btn-arrow-text">Siguiente</span><span class="arrow-symbol">→</span>
           </button>
         </div>
       </div>
@@ -192,9 +206,9 @@
         <button id="closeLightboxBtn" class="close-btn">✕</button>
       </div>
       <div class="lightbox-stage">
-        <button id="lightboxPrevBtn" class="lightbox-nav-arrow prev" title="Ilustración anterior">◀</button>
+        <button id="lightboxPrevBtn" class="lightbox-nav-arrow prev" title="Ilustración anterior">←</button>
         <div id="lightboxContent" class="lightbox-img-box"></div>
-        <button id="lightboxNextBtn" class="lightbox-nav-arrow next" title="Siguiente ilustración">▶</button>
+        <button id="lightboxNextBtn" class="lightbox-nav-arrow next" title="Siguiente ilustración">→</button>
       </div>
       <div class="lightbox-details">
         <p id="lightboxCaption"></p>
@@ -226,7 +240,7 @@
 
       <!-- Zona para arrastrar o cargar archivo .txt -->
       <div id="fileDropZone" class="file-dropzone">
-        <p>📂 <strong>Haz clic aquí o arrastra un archivo .txt</strong></p>
+        <p><strong>Haz clic aquí o arrastra un archivo .txt</strong></p>
         <small style="color: #94a3b8;">Carga automática de tu relato de inmediato</small>
         <input type="file" id="storyFileInput" accept=".txt,.md" style="display: none;">
       </div>
@@ -257,7 +271,7 @@
           <textarea id="newStoryContent" class="form-control" rows="8" placeholder="Pega aquí el contenido de tu cuento o carga un archivo .txt..." required></textarea>
         </div>
 
-        <button type="submit" class="action-btn">✨ Publicar en la Biblioteca</button>
+        <button type="submit" class="action-btn">Publicar en la Biblioteca</button>
       </form>
     </div>
   </div>
